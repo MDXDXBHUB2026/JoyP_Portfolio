@@ -46,7 +46,7 @@ export default function App() {
         <Hero onOpenResume={handleOpenResume} />
 
         {/* 2. Professional Introduction & Story Chapter 01 */}
-        <Introduction />
+        <Introduction onOpenResume={handleOpenResume} />
 
         {/* 3. Core Capabilities & Story Chapter 02 */}
         <ExpertiseGrid />

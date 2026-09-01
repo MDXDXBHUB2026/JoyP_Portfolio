@@ -14,11 +14,16 @@ import {
 } from 'lucide-react';
 import { CAREER_SNAPSHOTS, PERSONAL_INFO } from '../data/portfolioData';
 import { StoryChapter } from './StoryChapter';
+import { EducatorSpotlight } from './EducatorSpotlight';
 
-export const Introduction: React.FC = () => {
+interface IntroductionProps {
+  onOpenResume?: () => void;
+}
+
+export const Introduction: React.FC<IntroductionProps> = ({ onOpenResume }) => {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Story Chapter 01 Badge */}
         <StoryChapter
@@ -28,7 +33,7 @@ export const Introduction: React.FC = () => {
         />
 
         {/* Section Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-7">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight">
               “Every learner deserves a path designed for them.”
@@ -43,8 +48,11 @@ export const Introduction: React.FC = () => {
           </div>
         </div>
 
+        {/* Immersive Frameless Educator Spotlight & Verified Photo Information */}
+        <EducatorSpotlight onOpenResume={onOpenResume} />
+
         {/* Narrative Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Main Narrative Card */}
           <motion.div
