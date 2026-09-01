@@ -1,0 +1,187 @@
+
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Garden Gradient -->
+    <linearGradient id="bgGarden" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#1a3d24"/>
+      <stop offset="35%" stopColor="#144d29"/>
+      <stop offset="70%" stopColor="#0c311c"/>
+      <stop offset="100%" stopColor="#051329"/>
+    </linearGradient>
+
+    <!-- Foliage Lighting -->
+    <radialGradient id="foliageLight" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stopColor="#34d399" stopOpacity="0.35"/>
+      <stop offset="60%" stopColor="#065f46" stopOpacity="0.8"/>
+      <stop offset="100%" stopColor="#051329" stopOpacity="0.95"/>
+    </radialGradient>
+
+    <!-- Skin Foundation Gradients -->
+    <linearGradient id="skinTone" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stopColor="#fed7aa"/>
+      <stop offset="35%" stopColor="#fcd34d" stopOpacity="0.9"/>
+      <stop offset="70%" stopColor="#fbb454"/>
+      <stop offset="100%" stopColor="#ea8c38"/>
+    </linearGradient>
+
+    <radialGradient id="faceShading" cx="48%" cy="42%" r="55%">
+      <stop offset="0%" stopColor="#fff1e6"/>
+      <stop offset="45%" stopColor="#fed7aa"/>
+      <stop offset="85%" stopColor="#f7a35c"/>
+      <stop offset="100%" stopColor="#d97706"/>
+    </radialGradient>
+
+    <!-- Terracotta Blazer -->
+    <linearGradient id="blazerMain" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stopColor="#e25d48"/>
+      <stop offset="30%" stopColor="#cc4733"/>
+      <stop offset="70%" stopColor="#a83222"/>
+      <stop offset="100%" stopColor="#7a1e12"/>
+    </linearGradient>
+
+    <linearGradient id="blazerLapel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#eb6954"/>
+      <stop offset="50%" stopColor="#bd3c2a"/>
+      <stop offset="100%" stopColor="#8c2316"/>
+    </linearGradient>
+
+    <!-- Hair Texture Gradient -->
+    <linearGradient id="hairGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stopColor="#292524"/>
+      <stop offset="30%" stopColor="#1c1917"/>
+      <stop offset="70%" stopColor="#0f172a"/>
+      <stop offset="100%" stopColor="#050814"/>
+    </linearGradient>
+
+    <linearGradient id="hairHighlight" x1="0.2" y1="0.3" x2="0.8" y2="0.7">
+      <stop offset="0%" stopColor="#57534e" stopOpacity="0.4"/>
+      <stop offset="50%" stopColor="#292524" stopOpacity="0.1"/>
+      <stop offset="100%" stopColor="#0f172a" stopOpacity="0.5"/>
+    </linearGradient>
+
+    <!-- Edge Vignette Fade into Theme -->
+    <radialGradient id="themeVignette" cx="50%" cy="45%" r="55%">
+      <stop offset="55%" stopColor="#051329" stopOpacity="0"/>
+      <stop offset="80%" stopColor="#051329" stopOpacity="0.6"/>
+      <stop offset="100%" stopColor="#051329" stopOpacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="800" fill="url(#bgGarden)"/>
+  <rect width="600" height="800" fill="url(#foliageLight)"/>
+
+  <!-- Organic Bush Foliage Shapes -->
+  <g opacity="0.65">
+    <circle cx="80" cy="120" r="90" fill="#15803d"/>
+    <circle cx="160" cy="80" r="70" fill="#166534"/>
+    <circle cx="480" cy="140" r="110" fill="#15803d"/>
+    <circle cx="540" cy="240" r="85" fill="#14532d"/>
+    <circle cx="70" cy="300" r="80" fill="#166534"/>
+    <path d="M120 40 Q 150 10 180 40 Q 210 80 160 100 Z" fill="#22c55e" opacity="0.3"/>
+    <path d="M420 60 Q 460 20 500 70 Q 520 120 470 130 Z" fill="#4ade80" opacity="0.25"/>
+    <path d="M40 200 Q 80 170 110 210 Q 120 260 60 270 Z" fill="#10b981" opacity="0.2"/>
+  </g>
+
+  <!-- Joy's Hair (Back Structure) -->
+  <path d="M170 260 C140 160 180 60 300 55 C420 60 460 160 430 260 C425 320 405 380 390 410 C350 420 250 420 210 410 C195 380 175 320 170 260 Z" fill="url(#hairGrad)"/>
+
+  <!-- Neck & Trapezius -->
+  <path d="M250 320 L250 440 C250 460 350 460 350 440 L350 320 Z" fill="#fed7aa"/>
+  <path d="M260 330 C275 370 325 370 340 330 L335 425 C320 435 280 435 265 425 Z" fill="#fca5a5" opacity="0.45"/>
+
+  <!-- Face Realistic Geometry -->
+  <path d="M195 210 C185 300 215 380 300 385 C385 380 415 300 405 210 C405 130 365 105 300 105 C235 105 195 130 195 210 Z" fill="url(#faceShading)"/>
+
+  <!-- Hair Forehead & Framing (Natural Side-Sweep / Center Part) -->
+  <path d="M195 195 C210 130 265 105 300 108 C335 105 390 130 405 195 C390 150 350 120 300 120 C250 120 210 150 195 195 Z" fill="#1c1917"/>
+  <path d="M190 200 C200 150 240 120 290 125 C250 130 215 160 200 220 Z" fill="#292524"/>
+  <path d="M410 200 C400 150 360 120 310 125 C350 130 385 160 400 220 Z" fill="#292524"/>
+  <path d="M195 150 C230 125 370 125 405 150" stroke="#44403c" stroke-width="6" opacity="0.3" fill="none"/>
+
+  <!-- Eyebrows (Natural Soft Arch) -->
+  <path d="M225 200 Q 252 188 275 202" stroke="#292524" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M325 202 Q 348 188 375 200" stroke="#292524" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Eyes with Warm, Expressive Life -->
+  <!-- Left Eye -->
+  <g>
+    <path d="M230 220 Q 255 208 275 220 Q 255 230 230 220 Z" fill="#ffffff"/>
+    <ellipse cx="253" cy="219" rx="8" ry="7.5" fill="#292524"/>
+    <circle cx="253" cy="219" r="4.5" fill="#0f172a"/>
+    <circle cx="256" cy="216" r="2.5" fill="#ffffff"/>
+    <circle cx="250" cy="221" r="1.2" fill="#ffffff" opacity="0.7"/>
+    <path d="M226 218 Q 255 205 278 218" stroke="#1c1917" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M232 223 Q 255 231 274 223" stroke="#78716c" stroke-width="1.2" fill="none"/>
+    <path d="M222 215 Q 228 220 225 226" stroke="#ea580c" stroke-width="1.5" opacity="0.4" fill="none"/>
+  </g>
+
+  <!-- Right Eye -->
+  <g>
+    <path d="M325 220 Q 345 208 370 220 Q 345 230 325 220 Z" fill="#ffffff"/>
+    <ellipse cx="347" cy="219" rx="8" ry="7.5" fill="#292524"/>
+    <circle cx="347" cy="219" r="4.5" fill="#0f172a"/>
+    <circle cx="350" cy="216" r="2.5" fill="#ffffff"/>
+    <circle cx="344" cy="221" r="1.2" fill="#ffffff" opacity="0.7"/>
+    <path d="M322 218 Q 345 205 374 218" stroke="#1c1917" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M326 223 Q 345 231 368 223" stroke="#78716c" stroke-width="1.2" fill="none"/>
+    <path d="M378 215 Q 372 220 375 226" stroke="#ea580c" stroke-width="1.5" opacity="0.4" fill="none"/>
+  </g>
+
+  <!-- Gentle Laugh / Cheek Rosiness -->
+  <ellipse cx="225" cy="265" rx="20" ry="12" fill="#f43f5e" opacity="0.18"/>
+  <ellipse cx="375" cy="265" rx="20" ry="12" fill="#f43f5e" opacity="0.18"/>
+
+  <!-- Nose Structure -->
+  <path d="M295 210 L292 265 Q 300 273 308 265 L305 210" stroke="#ea580c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.35"/>
+  <path d="M286 262 Q 300 270 314 262" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+  <!-- Joy's Radiant Smile & Teeth -->
+  <g>
+    <path d="M250 290 Q 300 340 350 290 Q 300 300 250 290 Z" fill="#ffffff" stroke="#e11d48" stroke-width="1.5"/>
+    <path d="M252 292 Q 300 325 348 292" stroke="#e2e8f0" stroke-width="1.5" fill="none"/>
+    <path d="M272 292 L272 305" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M286 293 L286 312" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M300 293 L300 315" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M314 293 L314 312" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M328 292 L328 305" stroke="#cbd5e1" stroke-width="1"/>
+    <!-- Lip Outline -->
+    <path d="M242 288 Q 252 295 258 292 Q 300 295 342 292 Q 348 295 358 288" stroke="#be123c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M248 294 Q 300 345 352 294" stroke="#9f1239" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Inner Black Undershirt -->
+  <path d="M255 425 Q 300 460 345 425 L360 550 L240 550 Z" fill="#0f172a"/>
+
+  <!-- Terracotta Red/Orange Tailored Wrap Blazer -->
+  <!-- Shoulders & Coat Base -->
+  <path d="M90 600 C 90 480 200 440 250 430 L300 550 L350 430 C 400 440 510 480 510 600 L550 800 L50 800 Z" fill="url(#blazerMain)"/>
+
+  <!-- Left Lapel -->
+  <path d="M240 430 L320 610 L260 620 L180 460 Z" fill="url(#blazerLapel)"/>
+  <!-- Right Lapel (Wrap Over) -->
+  <path d="M360 430 L250 670 L310 680 L420 460 Z" fill="url(#blazerLapel)"/>
+
+  <!-- Collar Accents & Highlights -->
+  <path d="M250 430 L200 470 L230 510 L270 445 Z" fill="#f87171" opacity="0.35"/>
+  <path d="M350 430 L400 470 L370 510 L330 445 Z" fill="#f87171" opacity="0.35"/>
+
+  <!-- Chest Pocket Detail -->
+  <rect x="375" y="580" width="75" height="42" rx="5" fill="#a83222" stroke="#ea580c" stroke-width="1.8"/>
+  <line x1="375" y1="592" x2="450" y2="592" stroke="#ea580c" stroke-width="2.5"/>
+
+  <!-- White Fabric Shoulder Strap (Right Shoulder / Left Image) -->
+  <path d="M140 460 L70 700 L120 710 L185 470 Z" fill="#f8fafc" opacity="0.95"/>
+  <line x1="140" y1="460" x2="70" y2="700" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Cobalt Blue Water Bottle Cap Accent (Foreground) -->
+  <g>
+    <rect x="250" y="710" width="70" height="95" rx="20" fill="#2563eb"/>
+    <rect x="265" y="685" width="40" height="30" rx="6" fill="#1d4ed8"/>
+    <ellipse cx="285" cy="685" rx="18" ry="8" fill="#60a5fa"/>
+    <path d="M295 670 Q 305 660 305 680" stroke="#93c5fd" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Seamless Theme Vignette Overlay (Blends edges to #051329) -->
+  <rect width="600" height="800" fill="url(#themeVignette)"/>
+</svg>

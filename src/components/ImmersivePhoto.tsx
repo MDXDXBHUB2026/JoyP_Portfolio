@@ -1,32 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Camera, Upload, Sparkles, Image as ImageIcon, Check } from 'lucide-react';
+import { Camera, RefreshCw } from 'lucide-react';
+import { DEFAULT_PORTRAIT_DATA_URI } from '../data/defaultPhoto';
 
 interface ImmersivePhotoProps {
   className?: string;
 }
 
 export const ImmersivePhoto: React.FC<ImmersivePhotoProps> = ({ className = '' }) => {
-  const [photoUrl, setPhotoUrl] = useState<string | null>(null);
-  const [isHovered, setIsHovered] = useState(false);
+  // Always default to the authentic portrait so public visitors see it instantly
+  const [photoUrl, setPhotoUrl] = useState<string>(DEFAULT_PORTRAIT_DATA_URI);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Load saved photo from localStorage or look for public asset
+  // Check if a custom photo was saved locally in this browser
   useEffect(() => {
-    const saved = localStorage.getItem('JOY_PORTFOLIO_PHOTO');
-    if (saved) {
-      setPhotoUrl(saved);
-    } else {
-      // Test if default asset exists in public
-      const defaultImg = new Image();
-      defaultImg.src = './assets/joy-perez.jpg';
-      defaultImg.onload = () => setPhotoUrl('./assets/joy-perez.jpg');
-      defaultImg.onerror = () => {
-        // Also check root IMG_1599.jpeg
-        const testImg2 = new Image();
-        testImg2.src = './IMG_1599.jpeg';
-        testImg2.onload = () => setPhotoUrl('./IMG_1599.jpeg');
-      };
+    try {
+      const saved = localStorage.getItem('JOY_PORTFOLIO_PHOTO');
+      if (saved) {
+        setPhotoUrl(saved);
+      }
+    } catch {
+      // Fallback cleanly to default
     }
   }, []);
 
@@ -69,15 +63,23 @@ export const ImmersivePhoto: React.FC<ImmersivePhotoProps> = ({ className = '' }
     }
   };
 
+  const handleReset = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      localStorage.removeItem('JOY_PORTFOLIO_PHOTO');
+    } catch {
+      // ignore
+    }
+    setPhotoUrl(DEFAULT_PORTRAIT_DATA_URI);
+  };
+
   return (
     <div 
       className={`relative w-72 sm:w-80 h-96 sm:h-[430px] flex items-center justify-center ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
     >
-      {/* Hidden File Input for uploading authentic photo */}
+      {/* Hidden File Input for uploading alternate photo */}
       <input 
         type="file" 
         ref={fileInputRef} 
@@ -98,41 +100,21 @@ export const ImmersivePhoto: React.FC<ImmersivePhotoProps> = ({ className = '' }
         <circle cx="20" cy="215" r="2.5" fill="#10B981" />
       </svg>
 
-      {/* PHOTO DISPLAY OR UPLOAD PLACEHOLDER */}
+      {/* PHOTO DISPLAY - Always Rendered with Frameless Radial Fade */}
       <div className="relative w-full h-full overflow-hidden flex items-center justify-center rounded-3xl [mask-image:radial-gradient(ellipse_at_center,black_65%,transparent_95%)]">
-        {photoUrl ? (
-          <div className="relative w-full h-full">
-            <img 
-              src={photoUrl} 
-              alt="Joy L. Perez - Special Education Teacher" 
-              className="w-full h-full object-cover object-top filter brightness-105 contrast-105"
-            />
-            {/* Seamless Bottom and Edge Dark Navy Gradient Overlay to blend with #051329 */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#051329] via-transparent to-transparent opacity-80 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#051329]/40 via-transparent to-transparent pointer-events-none" />
-          </div>
-        ) : (
-          /* Empty / Upload Prompt state with seamless dark styling */
-          <div 
-            onClick={() => fileInputRef.current?.click()}
-            className="w-full h-full flex flex-col items-center justify-center p-6 text-center cursor-pointer bg-gradient-to-b from-[#0B254E]/80 to-[#051329] transition-all hover:bg-[#0E2E5F]/90"
-          >
-            <div className="w-16 h-16 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center mb-4 blue-glow">
-              <Upload className="w-8 h-8 text-sky-400 animate-bounce" />
-            </div>
-            <h4 className="text-base font-bold text-white mb-1">Click to Display Photo</h4>
-            <p className="text-xs text-sky-200/80 mb-3 max-w-[200px]">
-              Select <span className="text-orange-400 font-mono-code font-bold">IMG_1599.jpeg</span> to render Joy's authentic portrait
-            </p>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-sky-500/20 text-sky-300 border border-sky-400/40">
-              <Camera className="w-3.5 h-3.5" />
-              <span>Browse Image</span>
-            </span>
-          </div>
-        )}
+        <div className="relative w-full h-full">
+          <img 
+            src={photoUrl} 
+            alt="Joy L. Perez - Special Education Teacher & Clinical Physical Therapist" 
+            className="w-full h-full object-cover object-top filter brightness-105 contrast-105"
+          />
+          {/* Seamless Bottom and Edge Dark Navy Gradient Overlay to blend with #051329 */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#051329] via-transparent to-transparent opacity-80 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#051329]/40 via-transparent to-transparent pointer-events-none" />
+        </div>
       </div>
 
-      {/* Floating Action Badge: Change / Upload Photo on Hover or Click */}
+      {/* Floating Action Badge & Verified Credentials */}
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -146,14 +128,28 @@ export const ImmersivePhoto: React.FC<ImmersivePhotoProps> = ({ className = '' }
           </div>
         </div>
 
-        {/* Change / Upload Button Tooltip */}
-        <button
-          onClick={() => fileInputRef.current?.click()}
-          className="px-3 py-1 rounded-full glass border border-white/20 bg-slate-900/90 text-slate-300 hover:text-white hover:border-sky-400 text-[10px] font-medium flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
-        >
-          <Camera className="w-3 h-3 text-sky-400" />
-          <span>{photoUrl ? 'Update / Change Photo' : 'Upload IMG_1599.jpeg'}</span>
-        </button>
+        {/* Action Controls */}
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            title="Upload an alternative image file"
+            className="px-2.5 py-1 rounded-full glass border border-white/20 bg-slate-900/90 text-slate-300 hover:text-white hover:border-sky-400 text-[10px] font-medium flex items-center gap-1 transition-all shadow-md cursor-pointer"
+          >
+            <Camera className="w-3 h-3 text-sky-400" />
+            <span>Change Photo</span>
+          </button>
+          
+          {photoUrl !== DEFAULT_PORTRAIT_DATA_URI && (
+            <button
+              onClick={handleReset}
+              title="Reset to default portrait"
+              className="px-2 py-1 rounded-full glass border border-white/20 bg-slate-900/90 text-slate-300 hover:text-white hover:border-orange-400 text-[10px] font-medium flex items-center gap-1 transition-all shadow-md cursor-pointer"
+            >
+              <RefreshCw className="w-3 h-3 text-orange-400" />
+              <span>Reset</span>
+            </button>
+          )}
+        </div>
       </motion.div>
     </div>
   );
