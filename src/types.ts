@@ -62,7 +62,7 @@ export interface EcosystemNode {
   role: string;
   category: 'center' | 'therapist' | 'educator' | 'family' | 'psychology';
   description: string;
-  howJoyCollaborates: string;
+  howICoordinate: string;
 }
 
 export interface ConstellationNode {

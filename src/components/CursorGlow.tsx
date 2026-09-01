@@ -43,7 +43,7 @@ export const CursorGlow: React.FC = () => {
         top: `${position.y}px`,
         width: '400px',
         height: '400px',
-        background: 'radial-gradient(circle, rgba(45, 212, 191, 0.06) 0%, rgba(56, 189, 248, 0.03) 35%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, rgba(203, 213, 225, 0.05) 40%, transparent 70%)',
         borderRadius: '50%',
       }}
       aria-hidden="true"

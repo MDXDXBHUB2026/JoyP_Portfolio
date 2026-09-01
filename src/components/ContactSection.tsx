@@ -76,14 +76,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono-code text-blue-400 uppercase tracking-wider block mb-2 font-bold">
+          <span className="text-xs font-mono-code text-orange-400 uppercase tracking-wider block mb-2 font-bold">
             Get In Touch
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             “Let’s create meaningful learning experiences.”
           </h2>
           <p className="text-slate-300 text-sm sm:text-base mt-4 font-light leading-relaxed">
-            For professional opportunities, education-sector collaboration, and Special Education roles, please get in touch.
+            For professional opportunities, educational partnerships, and Special Education leadership roles, please reach out directly.
           </p>
         </div>
 
@@ -93,9 +93,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
           <div className="lg:col-span-5 space-y-6">
             
             {/* Primary Details Card */}
-            <div className="p-7 sm:p-8 rounded-3xl glass border border-white/10 space-y-6">
+            <div className="p-7 sm:p-8 rounded-3xl glass border border-slate-700/80 bg-[#030A16]/90 space-y-6">
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-purple-400" />
+                <Sparkles className="w-4 h-4 text-orange-400" />
                 <span>Professional Inquiries</span>
               </h3>
 
@@ -104,58 +104,58 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                 <span className="text-xs font-mono-code text-slate-400 uppercase tracking-wider">
                   Direct Email
                 </span>
-                <div className="flex items-center justify-between p-3.5 rounded-2xl glass border border-white/10">
+                <div className="flex items-center justify-between p-3.5 rounded-2xl glass border border-slate-700/60">
                   <div className="flex items-center gap-2.5 overflow-hidden">
-                    <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                    <Mail className="w-4 h-4 text-orange-400 shrink-0" />
                     <span className="text-xs sm:text-sm text-white font-mono-code truncate">
                       {PERSONAL_INFO.email}
                     </span>
                   </div>
                   <button
                     onClick={handleCopyEmail}
-                    className="p-2 rounded-xl text-slate-300 hover:text-white glass glass-hover border border-white/10 transition-colors shrink-0 ml-2 cursor-pointer"
+                    className="p-2 rounded-xl text-slate-300 hover:text-white glass glass-hover border border-slate-700/60 transition-colors shrink-0 ml-2 cursor-pointer"
                     title="Copy Email Address"
                     aria-label="Copy Email Address"
                   >
-                    {isCopied ? <Check className="w-4 h-4 text-blue-400" /> : <Copy className="w-4 h-4" />}
+                    {isCopied ? <Check className="w-4 h-4 text-orange-400" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
                 {isCopied && (
-                  <span className="text-[11px] text-blue-300 font-mono-code block">
+                  <span className="text-[11px] text-orange-300 font-mono-code block">
                     ✓ Email address copied to clipboard
                   </span>
                 )}
               </div>
 
               {/* Location */}
-              <div className="space-y-1 pt-2 border-t border-white/10">
+              <div className="space-y-1 pt-2 border-t border-slate-800">
                 <span className="text-xs font-mono-code text-slate-400 uppercase tracking-wider">
                   Location
                 </span>
                 <div className="flex items-center gap-2 text-sm text-white font-medium">
-                  <MapPin className="w-4 h-4 text-blue-400" />
+                  <MapPin className="w-4 h-4 text-orange-400" />
                   <span>Dubai, United Arab Emirates</span>
                 </div>
               </div>
 
               {/* Languages */}
-              <div className="space-y-1 pt-2 border-t border-white/10">
+              <div className="space-y-1 pt-2 border-t border-slate-800">
                 <span className="text-xs font-mono-code text-slate-400 uppercase tracking-wider">
                   Languages
                 </span>
                 <div className="flex items-center gap-2 text-sm text-white font-medium">
-                  <Languages className="w-4 h-4 text-purple-400" />
+                  <Languages className="w-4 h-4 text-slate-300" />
                   <span>English (Professional) & Tagalog (Native)</span>
                 </div>
               </div>
 
               {/* Résumé Quick Action */}
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-4 border-t border-slate-800">
                 <button
                   onClick={onOpenResume}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl glass glass-hover border border-white/15 text-white hover:text-white text-xs font-semibold transition-all shadow-sm cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl glass glass-hover border border-slate-700/60 text-white hover:text-white text-xs font-semibold transition-all shadow-sm cursor-pointer"
                 >
-                  <FileText className="w-4 h-4 text-purple-400" />
+                  <FileText className="w-4 h-4 text-orange-400" />
                   <span>View Printable Executive Résumé</span>
                 </button>
               </div>
@@ -163,11 +163,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
             </div>
 
             {/* Note on Professional Collaboration */}
-            <div className="p-6 rounded-3xl glass border border-blue-500/20 text-xs text-slate-300 font-light leading-relaxed">
-              <span className="font-semibold text-blue-300 block mb-1">
+            <div className="p-6 rounded-3xl glass border border-orange-500/25 bg-[#030A16]/90 text-xs text-slate-300 font-light leading-relaxed">
+              <span className="font-semibold text-orange-300 block mb-1">
                 Recruitment & Partnership Note:
               </span>
-              Joy actively responds to professional inquiries from educational institutions, inclusive schools, specialized learning centers, and multidisciplinary clinics.
+              I actively respond to professional inquiries from educational institutions, inclusive schools, specialized learning centers, and multidisciplinary clinics.
             </div>
 
           </div>

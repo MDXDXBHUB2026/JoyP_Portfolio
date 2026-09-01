@@ -12,14 +12,14 @@ export const InternationalCareer: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="p-8 sm:p-12 rounded-3xl glass border border-blue-500/30 blue-glow shadow-2xl relative overflow-hidden"
+          className="p-8 sm:p-12 rounded-3xl glass border border-slate-700/80 bg-[#030A16]/90 shadow-2xl relative overflow-hidden"
         >
           {/* Ambient Corner Aura */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-mono-code font-bold uppercase mb-4">
-              <Globe className="w-3.5 h-3.5 text-blue-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-300 text-xs font-mono-code font-bold uppercase mb-4">
+              <Globe className="w-3.5 h-3.5 text-orange-400" />
               <span>International Career Horizon</span>
             </div>
 
@@ -37,10 +37,10 @@ export const InternationalCareer: React.FC = () => {
             {INTERNATIONAL_CAREER_CONTENT.pillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl glass glass-hover border border-white/10 transition-all flex flex-col justify-between"
+                className="p-6 rounded-2xl glass glass-hover border border-slate-700/60 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 font-mono-code text-xs font-bold mb-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/25 flex items-center justify-center text-orange-400 font-mono-code text-xs font-bold mb-3.5">
                     0{idx + 1}
                   </div>
                   <h3 className="text-sm font-bold text-white mb-2">
@@ -55,17 +55,17 @@ export const InternationalCareer: React.FC = () => {
           </div>
 
           {/* CTA Row */}
-          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="text-xs text-slate-400 font-light">
-              Welcoming inquiries for Special Education, Learning Support, and SEN leadership roles.
+              Welcoming inquiries for Special Education, Learning Support, and SEN leadership roles globally.
             </span>
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-black bg-white hover:bg-slate-100 rounded-2xl transition-all shadow-lg active:scale-95 group cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 rounded-2xl transition-all shadow-lg shadow-orange-500/20 active:scale-95 group cursor-pointer"
             >
               <Send className="w-4 h-4" />
-              <span>Connect With Joy</span>
+              <span>Connect With Me</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>

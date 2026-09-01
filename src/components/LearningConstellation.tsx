@@ -19,19 +19,19 @@ export const LearningConstellation: React.FC = () => {
   const getIcon = (id: string) => {
     switch (id) {
       case 'potential':
-        return <Sparkles className="w-4 h-4 text-sky-300" />;
+        return <Sparkles className="w-4 h-4 text-orange-300" />;
       case 'communication':
-        return <MessageSquare className="w-4 h-4 text-teal-300" />;
+        return <MessageSquare className="w-4 h-4 text-slate-200" />;
       case 'independence':
-        return <UserCheck className="w-4 h-4 text-amber-300" />;
+        return <UserCheck className="w-4 h-4 text-amber-400" />;
       case 'confidence':
-        return <Smile className="w-4 h-4 text-purple-300" />;
+        return <Smile className="w-4 h-4 text-slate-300" />;
       case 'participation':
-        return <Compass className="w-4 h-4 text-emerald-300" />;
+        return <Compass className="w-4 h-4 text-orange-400" />;
       case 'growth':
-        return <TrendingUp className="w-4 h-4 text-blue-300" />;
+        return <TrendingUp className="w-4 h-4 text-slate-100" />;
       default:
-        return <Sparkles className="w-4 h-4 text-teal-300" />;
+        return <Sparkles className="w-4 h-4 text-orange-300" />;
     }
   };
 
@@ -39,17 +39,17 @@ export const LearningConstellation: React.FC = () => {
 
   return (
     <div className="relative w-full max-w-[540px] aspect-square flex items-center justify-center select-none" id="learning-constellation-container">
-      {/* Outer ambient decorative rings */}
-      <div className="absolute inset-0 rounded-full border border-white/10 animate-spin" style={{ animationDuration: '60s' }} />
-      <div className="absolute inset-8 rounded-full border border-dashed border-white/10 animate-spin" style={{ animationDuration: '40s', animationDirection: 'reverse' }} />
-      <div className="absolute inset-20 rounded-full border border-white/10 animate-pulse-subtle" />
+      {/* Outer ambient decorative rings with subtle silver/navy sheen */}
+      <div className="absolute inset-0 rounded-full border border-slate-700/40 animate-spin" style={{ animationDuration: '60s' }} />
+      <div className="absolute inset-8 rounded-full border border-dashed border-slate-600/30 animate-spin" style={{ animationDuration: '40s', animationDirection: 'reverse' }} />
+      <div className="absolute inset-20 rounded-full border border-orange-500/20 animate-pulse-subtle" />
 
       {/* SVG Connecting Web Lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 400 400">
         <defs>
           <radialGradient id="centerGlowGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
-            <stop offset="60%" stopColor="#8b5cf6" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#FB923C" stopOpacity="0.35" />
+            <stop offset="45%" stopColor="#0B254E" stopOpacity="0.4" />
             <stop offset="100%" stopColor="transparent" stopOpacity="0" />
           </radialGradient>
         </defs>
@@ -73,11 +73,11 @@ export const LearningConstellation: React.FC = () => {
                 y1="200"
                 x2={x}
                 y2={y}
-                stroke={isHighlighted ? node.color : '#ffffff20'}
+                stroke={isHighlighted ? node.color : '#94a3b830'}
                 strokeWidth={isHighlighted ? '2' : '1'}
                 strokeDasharray={isHighlighted ? 'none' : '3 3'}
                 className="transition-all duration-300"
-                opacity={isDimmed ? 0.2 : isHighlighted ? 0.9 : 0.45}
+                opacity={isDimmed ? 0.2 : isHighlighted ? 0.95 : 0.45}
               />
 
               {/* Pulsing beacon on line when active */}
@@ -85,7 +85,7 @@ export const LearningConstellation: React.FC = () => {
                 <circle
                   cx={(200 + x) / 2}
                   cy={(200 + y) / 2}
-                  r="3"
+                  r="3.5"
                   fill={node.color}
                   className="animate-ping"
                 />
@@ -113,10 +113,10 @@ export const LearningConstellation: React.FC = () => {
               y1={y1}
               x2={x2}
               y2={y2}
-              stroke={isConnectedToActive ? '#3b82f6' : '#ffffff15'}
+              stroke={isConnectedToActive ? '#FB923C' : '#94a3b820'}
               strokeWidth="1"
               strokeDasharray="2 4"
-              opacity={activeNodeId ? (isConnectedToActive ? 0.7 : 0.15) : 0.35}
+              opacity={activeNodeId ? (isConnectedToActive ? 0.8 : 0.15) : 0.35}
               className="transition-all duration-300"
             />
           );
@@ -124,14 +124,14 @@ export const LearningConstellation: React.FC = () => {
       </svg>
 
       {/* Central Node: "Every Learner" */}
-      <div className="relative z-20 flex flex-col items-center justify-center p-4 rounded-full w-28 h-28 glass border border-white/30 text-center shadow-2xl bg-white/10">
-        <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center mb-1 shadow-md">
-          <Heart className="w-4 h-4 text-black fill-black" />
+      <div className="relative z-20 flex flex-col items-center justify-center p-4 rounded-full w-28 h-28 glass border border-orange-500/40 text-center shadow-2xl bg-[#081832]/80 backdrop-blur-xl shadow-orange-500/10">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-orange-500 to-amber-400 text-white flex items-center justify-center mb-1 shadow-md shadow-orange-500/30">
+          <Heart className="w-4 h-4 text-white fill-white" />
         </div>
         <span className="text-[11px] uppercase tracking-wider font-mono-code font-bold text-white">
           Every Learner
         </span>
-        <span className="text-[9px] text-slate-300 font-light mt-0.5 leading-tight">
+        <span className="text-[9px] text-orange-200 font-light mt-0.5 leading-tight">
           Individual Core
         </span>
       </div>
@@ -160,8 +160,8 @@ export const LearningConstellation: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className={`group flex items-center justify-center w-12 h-12 rounded-2xl transition-all duration-300 shadow-lg cursor-pointer ${
                 isSelected
-                  ? 'glass border-2 bg-white/15 shadow-blue-500/30'
-                  : 'glass glass-hover border border-white/10'
+                  ? 'glass border-2 bg-orange-500/15 shadow-orange-500/30'
+                  : 'glass glass-hover border border-slate-700/60'
               }`}
               style={{
                 borderColor: isSelected ? node.color : undefined,
@@ -176,8 +176,8 @@ export const LearningConstellation: React.FC = () => {
             <div
               className={`absolute top-full left-1/2 -translate-x-1/2 mt-1.5 whitespace-nowrap px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide transition-all duration-200 pointer-events-none ${
                 isSelected
-                  ? 'bg-white text-black font-bold shadow-md'
-                  : 'glass text-slate-300 group-hover:text-white border border-white/10'
+                  ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold shadow-md'
+                  : 'glass text-slate-300 group-hover:text-white border border-slate-700/60'
               }`}
             >
               {node.title}
@@ -194,7 +194,7 @@ export const LearningConstellation: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute -bottom-16 sm:-bottom-12 z-30 max-w-[340px] p-4 rounded-2xl glass border border-white/20 text-left shadow-2xl"
+            className="absolute -bottom-16 sm:-bottom-12 z-30 max-w-[340px] p-4 rounded-2xl glass border border-slate-700/80 text-left shadow-2xl bg-[#030A16]/95 backdrop-blur-2xl"
           >
             <div className="flex items-start gap-2.5">
               <div
@@ -205,7 +205,7 @@ export const LearningConstellation: React.FC = () => {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h4 className="text-xs font-bold text-white" style={{ color: activeNode.color }}>
+                  <h4 className="text-xs font-bold" style={{ color: activeNode.color }}>
                     {activeNode.title}
                   </h4>
                   <span className="text-[10px] font-mono-code text-slate-400">
@@ -223,8 +223,8 @@ export const LearningConstellation: React.FC = () => {
 
       {/* Mobile / Default Helper Hint */}
       {!activeNode && (
-        <div className="absolute -bottom-10 z-20 text-[11px] text-slate-400 font-light flex items-center gap-1.5 opacity-70">
-          <Info className="w-3.5 h-3.5 text-blue-400" />
+        <div className="absolute -bottom-10 z-20 text-[11px] text-slate-400 font-light flex items-center gap-1.5 opacity-75">
+          <Info className="w-3.5 h-3.5 text-orange-400" />
           <span>Tap or hover learning nodes to explore educational pillars</span>
         </div>
       )}

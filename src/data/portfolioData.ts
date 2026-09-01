@@ -38,7 +38,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Potential',
     subtitle: 'Unlocking Innate Strengths',
     description: 'Identifying and nurturing the individual strengths and capabilities within each student.',
-    color: '#38BDF8', // Cyan
+    color: '#FB923C', // Radiant Orange
     angle: 0,
     distance: 145
   },
@@ -47,7 +47,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Communication',
     subtitle: 'Expressive & Receptive Growth',
     description: 'Fostering language, non-verbal cues, and assistive tools to give every child a voice.',
-    color: '#2DD4BF', // Teal
+    color: '#CBD5E1', // Luminous Silver
     angle: 60,
     distance: 140
   },
@@ -56,7 +56,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Independence',
     subtitle: 'Empowering Daily Autonomy',
     description: 'Building functional life and self-help skills grounded in physical therapy and behavioral support.',
-    color: '#E2C37A', // Gold
+    color: '#F97316', // Vibrant Orange
     angle: 120,
     distance: 145
   },
@@ -65,7 +65,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Confidence',
     subtitle: 'Emotional & Social Security',
     description: 'Creating positive, affirming classroom experiences where students feel secure to explore.',
-    color: '#A78BFA', // Violet
+    color: '#94A3B8', // Metallic Platinum/Silver
     angle: 180,
     distance: 140
   },
@@ -74,7 +74,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Participation',
     subtitle: 'Active Inclusive Engagement',
     description: 'Ensuring meaningful involvement in classroom activities through adaptive learning methods.',
-    color: '#34D399', // Emerald
+    color: '#EA580C', // Deep Amber Orange
     angle: 240,
     distance: 145
   },
@@ -83,7 +83,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Growth',
     subtitle: 'Holistic Milestone Evolution',
     description: 'Tracking developmental milestones and evolving individualized goals as children progress.',
-    color: '#60A5FA', // Blue
+    color: '#E2E8F0', // Bright Silver
     angle: 300,
     distance: 140
   }
@@ -397,52 +397,52 @@ export const CAREER_JOURNEY: CareerRole[] = [
 export const ECOSYSTEM_NODES: EcosystemNode[] = [
   {
     id: 'student',
-    role: 'Student (At the Center)',
+    role: 'Student (At the Center of My Practice)',
     category: 'center',
-    description: 'The core focus of every intervention — honored for their individual dignity, strengths, unique learning pace, and personal growth goals.',
-    howJoyCollaborates: 'Centering all classroom goals around student comfort, agency, active participation, and developmental progress.'
+    description: 'The core focus of all my interventions — honored for their individual dignity, strengths, unique learning pace, and personal growth milestones.',
+    howICoordinate: 'I center all classroom goals around student comfort, agency, active participation, and developmental progress.'
   },
   {
     id: 'teacher',
-    role: 'Special Education Teacher (Joy L. Perez)',
+    role: 'Special Education Teacher (My Role & Lead)',
     category: 'educator',
-    description: 'Coordinates classroom instruction, differentiates curricula, designs IEPs, and serves as the primary educational facilitator.',
-    howJoyCollaborates: 'Synthesizes clinical and pedagogical insights into engaging daily classroom activities and supportive routines.'
+    description: 'I coordinate classroom instruction, differentiate curricula, design and monitor IEPs, and serve as the primary educational facilitator.',
+    howICoordinate: 'I synthesize clinical and pedagogical insights into engaging daily classroom activities and supportive routines.'
   },
   {
     id: 'family',
     role: 'Family & Parents',
     category: 'family',
     description: 'Essential partners who provide foundational context on the child’s home life, preferences, cultural background, and emotional needs.',
-    howJoyCollaborates: 'Maintains open, empathetic communication, shares progress updates, and aligns home routines with classroom strategies.'
+    howICoordinate: 'I maintain open, empathetic communication, share progress milestones, and align home routines with classroom strategies.'
   },
   {
     id: 'speech-therapist',
     role: 'Speech-Language Pathologist',
     category: 'therapist',
     description: 'Focuses on receptive and expressive language, articulation, non-verbal communication, and assistive communication devices (AAC).',
-    howJoyCollaborates: 'Reinforces speech exercises, vocabulary targets, and communication boards within daily classroom conversations and games.'
+    howICoordinate: 'I reinforce speech exercises, vocabulary targets, and communication boards within daily classroom conversations and games.'
   },
   {
     id: 'ot-therapist',
     role: 'Occupational Therapist',
     category: 'therapist',
     description: 'Addresses fine motor skills, sensory integration, hand-eye coordination, and adaptive self-care functioning.',
-    howJoyCollaborates: 'Incorporates sensory breaks, adaptive writing utensils, and fine-motor activities directly into lesson planning.'
+    howICoordinate: 'I incorporate sensory breaks, adaptive writing utensils, and fine-motor activities directly into lesson planning.'
   },
   {
     id: 'psychologist',
     role: 'Educational / Child Psychologist',
     category: 'psychology',
     description: 'Evaluates cognitive profiles, emotional well-being, and designs behavioral support plans for complex challenges.',
-    howJoyCollaborates: 'Implements consistent positive behavior support strategies, structured visual schedules, and emotional regulation techniques.'
+    howICoordinate: 'I implement consistent positive behavior support strategies, structured visual schedules, and emotional regulation techniques.'
   },
   {
     id: 'learning-support',
     role: 'Learning Support Staff & Shadows',
     category: 'educator',
     description: 'Provides dedicated one-on-one and small group scaffolding to facilitate seamless classroom inclusion.',
-    howJoyCollaborates: 'Provides instructional guidance, differentiated resources, and feedback to ensure cohesive support throughout the day.'
+    howICoordinate: 'I provide instructional guidance, differentiated resources, and coaching to ensure cohesive support throughout the day.'
   }
 ];
 

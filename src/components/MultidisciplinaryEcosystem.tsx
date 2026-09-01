@@ -56,7 +56,7 @@ export const MultidisciplinaryEcosystem: React.FC = () => {
             “Progress happens through collaboration.”
           </h2>
           <p className="text-slate-300 text-sm sm:text-base mt-4 font-light leading-relaxed">
-            Joy bridges classroom instruction with clinical therapy — actively synchronizing strategies with speech pathologists, occupational therapists, psychologists, and families.
+            I bridge classroom instruction with clinical therapy — actively synchronizing strategies with speech pathologists, occupational therapists, psychologists, and families.
           </p>
         </div>
 
@@ -189,13 +189,13 @@ export const MultidisciplinaryEcosystem: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-2xl glass border border-white/10">
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-blue-300 mb-1.5 flex items-center gap-1.5 font-bold">
+                  <div className="p-5 rounded-2xl glass border border-slate-700/60">
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-orange-300 mb-1.5 flex items-center gap-1.5 font-bold">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>How Joy Coordinates with This Partner:</span>
+                      <span>How I Coordinate with This Role / Partner:</span>
                     </h4>
                     <p className="text-xs text-slate-300 leading-relaxed">
-                      {selectedNode.howJoyCollaborates}
+                      {selectedNode.howICoordinate}
                     </p>
                   </div>
                 </div>

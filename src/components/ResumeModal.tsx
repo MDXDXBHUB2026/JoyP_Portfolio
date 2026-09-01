@@ -39,9 +39,9 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           className="relative w-full max-w-4xl glass border border-white/20 rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
         >
           {/* Top Action Bar */}
-          <div className="px-6 py-4 glass border-b border-white/10 flex items-center justify-between shrink-0">
+          <div className="px-6 py-4 glass border-b border-slate-800 bg-[#030A16]/95 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-400 animate-pulse" />
               <span className="text-xs font-mono-code font-bold text-white tracking-wide">
                 EXECUTIVE CURRICULUM VITAE • JOY L. PEREZ
               </span>
@@ -50,17 +50,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="flex items-center gap-2">
               <button
                 onClick={handlePrint}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass glass-hover text-slate-200 text-xs font-semibold border border-white/10 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass glass-hover text-slate-200 text-xs font-semibold border border-slate-700/60 transition-colors cursor-pointer"
                 title="Print or Save as PDF"
               >
-                <Printer className="w-3.5 h-3.5 text-blue-400" />
+                <Printer className="w-3.5 h-3.5 text-orange-400" />
                 <span className="hidden sm:inline">Print / Save PDF</span>
               </button>
 
               <a
                 href={PERSONAL_INFO.resumeUrl}
                 download="Joy_L_Perez_Resume.pdf"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-black text-xs font-bold transition-all shadow-md cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-500 hover:bg-orange-400 text-white text-xs font-bold transition-all shadow-md shadow-orange-500/20 cursor-pointer"
                 title="Direct PDF link"
               >
                 <Download className="w-3.5 h-3.5" />
@@ -69,7 +69,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-xl text-slate-400 hover:text-white glass glass-hover transition-colors ml-2 cursor-pointer"
+                className="p-1.5 rounded-xl text-slate-400 hover:text-white glass glass-hover transition-colors ml-2 cursor-pointer border border-slate-700/60"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -78,24 +78,24 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
 
           {/* Printable CV Content Body */}
-          <div className="p-6 sm:p-10 overflow-y-auto space-y-8 text-slate-200 text-xs sm:text-sm font-light bg-black/40" id="printable-cv-content">
+          <div className="p-6 sm:p-10 overflow-y-auto space-y-8 text-slate-200 text-xs sm:text-sm font-light bg-[#030A16]/95" id="printable-cv-content">
             
             {/* Header / Contact */}
-            <div className="border-b border-white/10 pb-6">
+            <div className="border-b border-slate-800 pb-6">
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 {PERSONAL_INFO.name}
               </h1>
-              <p className="text-sm sm:text-base font-semibold text-purple-300 mt-1">
+              <p className="text-sm sm:text-base font-semibold text-orange-300 mt-1">
                 {PERSONAL_INFO.title} • Special Education | Inclusive Learning | Individualized Education | Student Development
               </p>
               <div className="flex flex-wrap gap-4 text-xs text-slate-300 mt-3 font-mono-code">
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                  <MapPin className="w-3.5 h-3.5 text-orange-400" />
                   {PERSONAL_INFO.location}
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1">
-                  <Mail className="w-3.5 h-3.5 text-blue-400" />
+                  <Mail className="w-3.5 h-3.5 text-orange-400" />
                   {PERSONAL_INFO.email}
                 </span>
                 <span>•</span>
