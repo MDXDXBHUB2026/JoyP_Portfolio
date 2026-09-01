@@ -1,39 +1,46 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface ImmersivePhotoProps {
   className?: string;
 }
 
-const profilePhoto = 'data:image/jpeg;base64,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';
+const profilePhoto = `${import.meta.env.BASE_URL}assets/aistudio/joy-perez-profile-premium.png`;
 
 export const ImmersivePhoto: React.FC<ImmersivePhotoProps> = ({ className = '' }) => {
   return (
-    <div className={`relative w-full max-w-[480px] lg:max-w-[540px] xl:max-w-[580px] flex items-center justify-end ${className}`}>
-      {/* Background Soft Studio Ambient Glow */}
-      <div className="absolute inset-0 bg-radial from-amber-500/10 via-sky-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
+    <div
+      className={`relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[460px] xl:max-w-[500px] aspect-[4/5] min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] flex items-center justify-center ${className}`}
+    >
+      <div className="absolute inset-0 rounded-full bg-gradient-to-b from-sky-400/30 via-emerald-400/20 to-orange-500/30 blur-3xl scale-105 pointer-events-none animate-pulse-subtle" />
 
-      {/* Seamless Studio Portrait Container */}
-      <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] max-h-[580px] overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden rounded-[2rem] group shadow-2xl shadow-sky-950/50 ring-1 ring-white/10 bg-[#07182f]">
         <img
           src={profilePhoto}
           alt="Joy L. Perez"
-          className="w-full h-full object-cover object-top filter brightness-105 contrast-105 select-none"
+          loading="eager"
+          decoding="async"
+          className="w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-[1.015]"
+          style={{ objectPosition: 'center 18%' }}
         />
 
-        {/* Studio Seamless Blend Gradients */}
-        {/* Bottom Fade to dark background */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#051329] via-[#051329]/80 to-transparent pointer-events-none" />
-        
-        {/* Left Edge Fade into navy content area */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#051329] via-[#051329]/50 to-transparent pointer-events-none hidden lg:block" />
-        
-        {/* Right Edge Softening */}
-        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#051329]/60 to-transparent pointer-events-none" />
-
-        {/* Top Edge subtle blend */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#051329]/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#051329]/75 via-[#051329]/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none" />
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none"
+      >
+        <div className="px-5 py-2 rounded-full glass border border-sky-400/50 bg-[#051329]/95 text-center shadow-2xl shadow-sky-950/90 blue-glow whitespace-nowrap">
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-mono-code font-bold text-white tracking-wide">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>JOY L. PEREZ</span>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 };
-
