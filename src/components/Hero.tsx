@@ -7,12 +7,11 @@ import {
   Sparkles, 
   ChevronDown, 
   BookOpen, 
-  HeartHandshake,
   CheckCircle2,
-  FileText
+  FileText,
+  ShieldCheck
 } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData';
-import { LearningConstellation } from './LearningConstellation';
+import { ImmersivePhoto } from './ImmersivePhoto';
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -22,9 +21,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   return (
     <section 
       id="home" 
-      className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-[94vh] flex items-center justify-center pt-24 sm:pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
         
         {/* Left Column: Authoritative Editorial Copy & CTAs */}
         <motion.div 
@@ -58,19 +57,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             I am a Special Education Teacher with over 15 years of dedicated practice in Dubai, creating individualized, inclusive, and multi-sensory learning pathways that empower diverse learners to achieve meaningful milestones.
           </p>
 
-          {/* Location & Language Highlights */}
-          <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-300 mb-8 pt-2">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl glass border border-sky-500/25">
+          {/* Location & Key Practice Badges */}
+          <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-300 mb-8">
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-2xl glass border border-sky-500/25">
               <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
               <span>Special Education Teacher • <strong className="text-white font-medium">Dubai, UAE</strong></span>
             </div>
 
-            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl glass border border-emerald-500/25">
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-2xl glass border border-emerald-500/25">
               <Languages className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>English & Tagalog</span>
             </div>
 
-            <div className="flex items-center gap-1.5 px-4 py-2 rounded-2xl glass bg-orange-500/15 text-orange-200 border border-orange-500/35 text-xs font-medium shadow-sm shadow-orange-500/10">
+            <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-2xl glass bg-orange-500/15 text-orange-200 border border-orange-500/35 text-xs font-medium shadow-sm shadow-orange-500/10">
               <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" />
               <span>15+ Years UAE Practice</span>
             </div>
@@ -107,14 +106,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
           </div>
         </motion.div>
 
-        {/* Right Column: Educational Learning Constellation */}
+        {/* Right Column: Prominent Top-Right Immersive Portrait */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.92, x: 30 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="lg:col-span-5 flex flex-col items-center justify-center py-6 z-10 w-full"
+          className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center py-4 z-10 w-full relative"
         >
-          <LearningConstellation />
+          {/* Top floating verification status pill */}
+          <div className="mb-3 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-emerald-400/40 bg-[#051329]/80 text-emerald-300 text-xs font-mono-code font-semibold shadow-lg shadow-emerald-950/40">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Shaikha Maitha Foundation • Dubai</span>
+          </div>
+
+          {/* Enlarged Immersive Photo Container */}
+          <ImmersivePhoto />
         </motion.div>
 
       </div>

@@ -2,19 +2,17 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { 
   Sparkles, 
-  Activity, 
-  HeartHandshake, 
-  BrainCircuit, 
-  Compass, 
   CheckCircle2, 
   ArrowRight,
   ShieldCheck,
   Award,
-  Target
+  GraduationCap,
+  Heart,
+  Brain
 } from 'lucide-react';
-import { CAREER_SNAPSHOTS, PERSONAL_INFO } from '../data/portfolioData';
+import { CAREER_SNAPSHOTS } from '../data/portfolioData';
 import { StoryChapter } from './StoryChapter';
-import { EducatorSpotlight } from './EducatorSpotlight';
+import { LearningConstellation } from './LearningConstellation';
 
 interface IntroductionProps {
   onOpenResume?: () => void;
@@ -48,98 +46,112 @@ export const Introduction: React.FC<IntroductionProps> = ({ onOpenResume }) => {
           </div>
         </div>
 
-        {/* Immersive Frameless Educator Spotlight & Verified Photo Information */}
-        <EducatorSpotlight onOpenResume={onOpenResume} />
-
-        {/* Narrative Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Interactive Pedagogy & Interdisciplinary Synthesis Split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Main Narrative Card */}
+          {/* Left Column: Interdisciplinary Narrative & Core Competencies */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-8 p-8 sm:p-10 rounded-3xl glass border border-sky-500/25 bg-[#061834]/85 relative overflow-hidden flex flex-col justify-between shadow-2xl shadow-sky-950/40"
+            className="lg:col-span-6 space-y-6"
           >
-            <div className="absolute -top-24 -right-24 w-60 h-60 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-            
-            <div>
+            {/* Distinctive Background Card */}
+            <div className="p-8 rounded-3xl glass border border-sky-500/25 bg-[#061834]/85 relative overflow-hidden shadow-2xl shadow-sky-950/40">
+              <div className="absolute -top-24 -right-24 w-60 h-60 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+              
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2.5">
                 <Sparkles className="w-5 h-5 text-sky-400" />
-                <span>My Distinctive Interdisciplinary Background</span>
+                <span>Distinctive Clinical & Educational Synthesis</span>
               </h3>
 
-              <p className="text-slate-300 leading-relaxed mb-6 font-light">
-                Serving as a full-time Special Education Teacher since September 2010 at the prestigious <strong className="text-white font-medium">Shaikha Maitha Bint Rashid Al Maktoum Foundation for Special Needs</strong> in Dubai, I have developed a multidisciplinary practice rooted in physical therapy, healthcare, and specialized classroom instruction.
+              <p className="text-slate-300 leading-relaxed mb-4 font-light text-sm sm:text-base">
+                Serving as a full-time Special Education Teacher since September 2010 at the prestigious <strong className="text-white font-medium">Shaikha Maitha Bint Rashid Al Maktoum Foundation for Special Needs</strong> in Dubai, I integrate physical therapy principles with individualized classroom instruction.
               </p>
 
-              <p className="text-slate-300 leading-relaxed mb-6 font-light">
-                This foundational clinical background equips me with an exceptional, holistic perspective on child neurodevelopment, motor positioning, sensory regulation, and positive behavioral support — ensuring every educational intervention is backed by developmental science and authentic empathy.
+              <p className="text-slate-300 leading-relaxed font-light text-sm sm:text-base mb-6">
+                This clinical grounding gives me unique insight into neurodevelopment, motor positioning, sensory regulation, and positive behavioral support — ensuring every educational intervention is backed by developmental science.
               </p>
+
+              {/* Core Competencies Badges */}
+              <div className="pt-5 border-t border-sky-500/20">
+                <span className="text-xs font-mono-code uppercase tracking-wider text-sky-300 block mb-3 font-semibold">
+                  Core Competencies & Daily Practice:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    'Individualized Education Programs (IEP)',
+                    'Physical Therapy & Biomechanics',
+                    'Sensory Integration & Regulation',
+                    'Positive Behavior Support (RBT® Trained)',
+                    'Multi-Sensory Curriculum Adaptation',
+                    'Assistive Technology (AAC & PECS)',
+                    'Multidisciplinary Team Leadership'
+                  ].map((item, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass border border-sky-500/20 text-slate-200 text-xs font-medium hover:border-emerald-400/50 transition-colors"
+                    >
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{item}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Distinctive Combination Badges */}
-            <div className="pt-6 border-t border-sky-500/20">
-              <span className="text-xs font-mono-code uppercase tracking-wider text-sky-300 block mb-3 font-semibold">
-                Core Competencies & Daily Practice:
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  'Individualized Education Programs (IEP)',
-                  'Physical Therapy & Biomechanics',
-                  'Sensory Integration & Regulation',
-                  'Positive Behavior Support (RBT® Trained)',
-                  'Multi-Sensory Curriculum Adaptation',
-                  'Assistive Technology (AAC & PECS)',
-                  'Multidisciplinary Team Leadership'
-                ].map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass border border-sky-500/20 text-slate-200 text-xs font-medium hover:border-emerald-400/50 transition-colors"
-                  >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>{item}</span>
-                  </span>
-                ))}
+            {/* Primary UAE Affiliation Pill */}
+            <div className="p-6 rounded-2xl glass border border-orange-500/35 bg-[#061834]/90 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl shadow-orange-500/10">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono-code text-orange-400 uppercase tracking-wider mb-1 font-bold">
+                  <ShieldCheck className="w-4 h-4 text-orange-400" />
+                  <span>Primary Institutional Base</span>
+                </div>
+                <h4 className="text-base font-bold text-white leading-snug">
+                  Shaikha Maitha Bint Rashid Al Maktoum Foundation
+                </h4>
+                <p className="text-xs text-orange-300/90 font-mono-code mt-0.5">
+                  Dubai, UAE • Sept 2010 – Present (15+ Years)
+                </p>
               </div>
+
+              {onOpenResume && (
+                <button
+                  onClick={onOpenResume}
+                  className="px-4 py-2 rounded-xl text-xs font-semibold glass border border-sky-400/40 text-sky-300 hover:text-white hover:bg-sky-500/20 transition-all shrink-0 cursor-pointer"
+                >
+                  View Credentials →
+                </button>
+              )}
             </div>
           </motion.div>
 
-          {/* Current Institution Highlight Panel */}
+          {/* Right Column: Interactive Learning Constellation Explorer */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-4 p-8 rounded-3xl glass border border-orange-500/35 flex flex-col justify-between bg-[#061834]/90 shadow-2xl shadow-orange-500/10"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-6 flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl glass border border-sky-500/20 bg-[#061834]/60 relative overflow-hidden"
           >
-            <div>
-              <div className="flex items-center gap-2 text-xs font-mono-code text-orange-400 uppercase tracking-wider mb-2 font-bold">
-                <ShieldCheck className="w-4 h-4 text-orange-400" />
-                <span>Primary UAE Affiliation</span>
+            <div className="w-full text-center mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-sky-500/30 text-sky-300 text-[11px] font-mono-code uppercase tracking-wider mb-2">
+                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                <span>Interactive Learning Ecosystem</span>
               </div>
-              <h4 className="text-lg font-bold text-white leading-snug mb-2">
-                Shaikha Maitha Bint Rashid Al Maktoum Foundation for Special Needs
-              </h4>
-              <p className="text-xs text-orange-300/90 mb-4 font-mono-code">
-                Dubai, UAE • Sept 2010 – Present
-              </p>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                Over 15 years of continuous service delivering individualized learning roadmaps, adaptive classroom technologies, and cross-functional team coordination for students with diverse developmental profiles.
+              <h3 className="text-lg font-bold text-white">
+                Educational Pillars of Joy L. Perez
+              </h3>
+              <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+                Explore the 6 core dimensions of student growth centered around each learner's unique potential.
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-800">
-              <a
-                href="#experience"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-orange-300 hover:text-white group transition-colors"
-              >
-                <span>View my career milestones & impact</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+            {/* Constellation Canvas */}
+            <LearningConstellation />
           </motion.div>
+
         </div>
 
         {/* 4 Professional Career Snapshot Cards */}
