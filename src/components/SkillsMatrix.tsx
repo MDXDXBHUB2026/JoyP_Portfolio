@@ -11,15 +11,44 @@ import {
 } from 'lucide-react';
 import { SKILLS_MATRIX } from '../data/portfolioData';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
+    }
+  }
+};
+
+const pillarVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  }
+};
+
 export const SkillsMatrix: React.FC = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-4"
+        >
           <div>
-            <span className="text-xs font-mono-code text-blue-400 uppercase tracking-wider block mb-2 font-bold">
+            <span className="text-xs font-mono-code text-sky-400 uppercase tracking-wider block mb-2 font-bold">
               Competency Matrix
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -29,28 +58,32 @@ export const SkillsMatrix: React.FC = () => {
           <p className="text-slate-300 text-xs sm:text-sm max-w-md font-light">
             Interactive skill domains reflecting specialized pedagogy, adaptive support tools, and personal professional strengths.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3 Skill Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          
+        {/* 3 Skill Pillars with Staggered Scroll Reveal */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+        >
           {/* Pillar 1: Pedagogy & IEP */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-7 rounded-3xl glass glass-hover border border-white/10 flex flex-col justify-between"
+            variants={pillarVariants}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="p-7 rounded-3xl glass glass-hover border border-sky-500/20 bg-[#061834]/80 flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center gap-2 text-blue-300 font-mono-code text-xs uppercase tracking-wider mb-4 font-bold">
-                <Layers className="w-4 h-4 text-blue-400" />
+              <div className="flex items-center gap-2 text-sky-300 font-mono-code text-xs uppercase tracking-wider mb-4 font-bold">
+                <Layers className="w-4 h-4 text-sky-400" />
                 <span>Pedagogy & IEP Design</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {SKILLS_MATRIX.pedagogyAndIEP.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3.5 py-1.5 rounded-xl glass border border-white/10 text-slate-200 hover:border-blue-400/40 hover:text-white transition-all text-xs font-medium cursor-default"
+                    className="px-3.5 py-1.5 rounded-xl glass border border-sky-500/20 text-slate-200 hover:border-sky-400/40 hover:text-white transition-all text-xs font-medium cursor-default"
                   >
                     {skill}
                   </span>
@@ -61,11 +94,9 @@ export const SkillsMatrix: React.FC = () => {
 
           {/* Pillar 2: Adaptive & Assistive */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="p-7 rounded-3xl glass glass-hover border border-white/10 flex flex-col justify-between"
+            variants={pillarVariants}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="p-7 rounded-3xl glass glass-hover border border-sky-500/20 bg-[#061834]/80 flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center gap-2 text-purple-300 font-mono-code text-xs uppercase tracking-wider mb-4 font-bold">
@@ -76,7 +107,7 @@ export const SkillsMatrix: React.FC = () => {
                 {SKILLS_MATRIX.adaptiveAndAssistive.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3.5 py-1.5 rounded-xl glass border border-white/10 text-slate-200 hover:border-purple-400/40 hover:text-white transition-all text-xs font-medium cursor-default"
+                    className="px-3.5 py-1.5 rounded-xl glass border border-purple-500/20 text-slate-200 hover:border-purple-400/40 hover:text-white transition-all text-xs font-medium cursor-default"
                   >
                     {skill}
                   </span>
@@ -87,11 +118,9 @@ export const SkillsMatrix: React.FC = () => {
 
           {/* Pillar 3: Collaborative & Care */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="p-7 rounded-3xl glass glass-hover border border-white/10 flex flex-col justify-between"
+            variants={pillarVariants}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="p-7 rounded-3xl glass glass-hover border border-sky-500/20 bg-[#061834]/80 flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center gap-2 text-pink-300 font-mono-code text-xs uppercase tracking-wider mb-4 font-bold">
@@ -102,7 +131,7 @@ export const SkillsMatrix: React.FC = () => {
                 {SKILLS_MATRIX.collaborativeAndCare.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3.5 py-1.5 rounded-xl glass border border-white/10 text-slate-200 hover:border-pink-400/40 hover:text-white transition-all text-xs font-medium cursor-default"
+                    className="px-3.5 py-1.5 rounded-xl glass border border-pink-500/20 text-slate-200 hover:border-pink-400/40 hover:text-white transition-all text-xs font-medium cursor-default"
                   >
                     {skill}
                   </span>
@@ -110,20 +139,26 @@ export const SkillsMatrix: React.FC = () => {
               </div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Digital Documentation & Personal Strengths Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Digital Documentation & Personal Strengths Row with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6"
+        >
           
           {/* Digital Software Documentation Tools */}
-          <div className="lg:col-span-5 p-7 rounded-3xl glass border border-white/10">
-            <div className="flex items-center gap-2 text-blue-300 font-mono-code text-xs uppercase tracking-wider mb-4 font-bold">
-              <Monitor className="w-4 h-4 text-blue-400" />
+          <div className="lg:col-span-5 p-7 rounded-3xl glass border border-sky-500/20 bg-[#061834]/80">
+            <div className="flex items-center gap-2 text-sky-300 font-mono-code text-xs uppercase tracking-wider mb-4 font-bold">
+              <Monitor className="w-4 h-4 text-sky-400" />
               <span>Digital Documentation & Classroom Tools</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3">
               {SKILLS_MATRIX.digitalTools.map((tool, idx) => (
-                <div key={idx} className="p-3 rounded-2xl glass border border-white/10 flex flex-col">
+                <div key={idx} className="p-3 rounded-2xl glass border border-sky-500/15 bg-[#082042]/60 flex flex-col">
                   <span className="text-xs font-bold text-white">{tool.name}</span>
                   <span className="text-[10px] text-slate-400 font-light">{tool.category}</span>
                 </div>
@@ -132,16 +167,16 @@ export const SkillsMatrix: React.FC = () => {
           </div>
 
           {/* Personal Strengths & Professional Character */}
-          <div className="lg:col-span-7 p-7 rounded-3xl glass border border-white/10">
+          <div className="lg:col-span-7 p-7 rounded-3xl glass border border-sky-500/20 bg-[#061834]/80">
             <div className="flex items-center gap-2 text-purple-300 font-mono-code text-xs uppercase tracking-wider mb-4 font-bold">
               <Smile className="w-4 h-4 text-purple-400" />
               <span>Core Personal Strengths</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
               {SKILLS_MATRIX.personalStrengths.map((strength, idx) => (
-                <div key={idx} className="p-4 rounded-2xl glass border border-white/10 flex flex-col justify-between">
+                <div key={idx} className="p-4 rounded-2xl glass border border-sky-500/15 bg-[#082042]/60 flex flex-col justify-between">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-white mb-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                     <span>{strength.title}</span>
                   </div>
                   <p className="text-[11px] text-slate-400 font-light leading-snug">
@@ -152,7 +187,7 @@ export const SkillsMatrix: React.FC = () => {
             </div>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

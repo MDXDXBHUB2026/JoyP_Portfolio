@@ -16,10 +16,10 @@ export const PhilosophySection: React.FC = () => {
         
         {/* Cinematic Quote Card */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 35, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="p-8 sm:p-14 rounded-3xl glass border border-slate-700/80 bg-[#030A16]/90 text-center relative shadow-2xl shadow-orange-500/5"
         >
           <div className="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center mx-auto mb-8 shadow-md text-orange-400">
@@ -44,8 +44,14 @@ export const PhilosophySection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Why I Teach Sub-section */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        {/* Why I Teach Sub-section with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
+        >
           <div className="md:col-span-5">
             <span className="text-xs font-mono-code text-orange-400 uppercase tracking-wider block mb-2 font-bold">
               Human-Centered Purpose
@@ -63,7 +69,7 @@ export const PhilosophySection: React.FC = () => {
               By combining structured Individualized Education Programs (IEPs) with compassionate behavioral guidance, adaptive technologies, and multidisciplinary alignment, I strive to build classroom spaces where differences are understood, achievements are celebrated, and every child feels empowered to grow.
             </p>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

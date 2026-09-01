@@ -75,7 +75,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <span className="text-xs font-mono-code text-orange-400 uppercase tracking-wider block mb-2 font-bold">
             Get In Touch
           </span>
@@ -85,12 +91,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
           <p className="text-slate-300 text-sm sm:text-base mt-4 font-light leading-relaxed">
             For professional opportunities, educational partnerships, and Special Education leadership roles, please reach out directly.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left Column: Direct Contact Details & Quick Tools */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 space-y-6"
+          >
             
             {/* Primary Details Card */}
             <div className="p-7 sm:p-8 rounded-3xl glass border border-sky-500/25 bg-[#061834]/90 space-y-6 shadow-2xl shadow-sky-950/40">
@@ -170,10 +182,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
               I actively respond to professional inquiries from educational institutions, inclusive schools, specialized learning centers, and multidisciplinary clinics.
             </div>
 
-          </div>
+          </motion.div>
 
           {/* Right Column: Validated Professional Contact Form */}
-          <div className="lg:col-span-7">
+          <motion.div 
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7"
+          >
             <div className="p-8 sm:p-10 rounded-3xl glass border border-sky-500/25 bg-[#061834]/90 relative shadow-2xl shadow-sky-950/40">
               <h3 className="text-xl font-bold text-white mb-2">
                 Send a Professional Message
@@ -313,7 +331,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
               )}
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

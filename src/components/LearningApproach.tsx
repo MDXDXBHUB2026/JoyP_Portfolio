@@ -45,9 +45,15 @@ export const LearningApproach: React.FC = () => {
         />
 
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6"
+        >
           <div>
-            <span className="text-xs font-mono-code text-blue-400 uppercase tracking-wider block mb-2 font-bold">
+            <span className="text-xs font-mono-code text-sky-400 uppercase tracking-wider block mb-2 font-bold">
               Iterative Pedagogical Process
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
@@ -57,14 +63,20 @@ export const LearningApproach: React.FC = () => {
           <p className="text-slate-300 text-sm sm:text-base max-w-md font-light">
             A responsive, cyclical methodology ensuring each student receives scaffolded support that adapts as they grow and achieve new milestones.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Desktop Connected 6-Step Pathway */}
-        <div className="hidden lg:grid grid-cols-6 gap-3 mb-10 relative">
+        {/* Desktop Connected 6-Step Pathway with Staggered Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden lg:grid grid-cols-6 gap-3 mb-10 relative"
+        >
           {/* Background Connecting Line */}
           <div className="absolute top-7 left-8 right-8 h-[2px] bg-white/10 -z-0" />
           <div 
-            className="absolute top-7 left-8 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-500 -z-0"
+            className="absolute top-7 left-8 h-[2px] bg-gradient-to-r from-sky-400 via-purple-500 to-pink-500 transition-all duration-500 -z-0"
             style={{ width: `${(activeStepIndex / 5) * 88}%` }}
           />
 
@@ -78,8 +90,8 @@ export const LearningApproach: React.FC = () => {
                 onClick={() => setActiveStepIndex(idx)}
                 className={`relative z-10 text-left p-5 rounded-2xl transition-all duration-300 focus:outline-none flex flex-col items-start cursor-pointer ${
                   isActive 
-                    ? 'glass border-white/30 shadow-xl shadow-blue-500/10 bg-white/10' 
-                    : 'glass glass-hover border-white/10'
+                    ? 'glass border-sky-400/40 shadow-xl shadow-sky-500/10 bg-[#061834]/90' 
+                    : 'glass glass-hover border-sky-500/15 bg-[#061834]/60'
                 }`}
                 id={`approach-step-btn-${step.step}`}
               >
@@ -87,9 +99,9 @@ export const LearningApproach: React.FC = () => {
                 <div 
                   className={`w-10 h-10 rounded-2xl flex items-center justify-center mb-3 transition-all ${
                     isActive 
-                      ? 'bg-white text-black shadow-lg font-bold' 
+                      ? 'bg-sky-400 text-[#051329] shadow-lg font-bold' 
                       : isPassed
-                      ? 'bg-blue-500/20 text-blue-300 border border-blue-400/40'
+                      ? 'bg-sky-500/20 text-sky-300 border border-sky-400/40'
                       : 'bg-white/5 text-slate-400 border border-white/10'
                   }`}
                 >
@@ -106,7 +118,7 @@ export const LearningApproach: React.FC = () => {
               </button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Selected Step Deep Dive Card (Desktop) */}
         <motion.div
@@ -114,16 +126,16 @@ export const LearningApproach: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="hidden lg:block p-8 sm:p-10 rounded-3xl glass border border-white/15 shadow-2xl relative overflow-hidden"
+          className="hidden lg:block p-8 sm:p-10 rounded-3xl glass border border-sky-500/25 bg-[#061834]/80 shadow-2xl relative overflow-hidden"
         >
           <div className="grid grid-cols-12 gap-8 items-center">
             <div className="col-span-7">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-400/30 flex items-center justify-center">
                   {getStepIcon(activeStepIndex)}
                 </div>
                 <div>
-                  <span className="text-xs font-mono-code text-blue-400 font-bold tracking-wider">
+                  <span className="text-xs font-mono-code text-sky-400 font-bold tracking-wider">
                     PHASE {activeStep.step} OF 06
                   </span>
                   <h3 className="text-2xl font-bold text-white">
@@ -137,15 +149,15 @@ export const LearningApproach: React.FC = () => {
               </p>
             </div>
 
-            <div className="col-span-5 glass p-6 rounded-2xl border border-white/10">
-              <h4 className="text-xs font-mono-code uppercase tracking-wider text-blue-300 mb-3 flex items-center gap-1.5 font-bold">
-                <Sparkles className="w-3.5 h-3.5" />
+            <div className="col-span-5 glass p-6 rounded-2xl border border-sky-500/20 bg-[#082042]/70">
+              <h4 className="text-xs font-mono-code uppercase tracking-wider text-sky-300 mb-3 flex items-center gap-1.5 font-bold">
+                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
                 <span>Key Pedagogical Actions</span>
               </h4>
               <ul className="space-y-2.5">
                 {activeStep.keyActions.map((action, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-xs text-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{action}</span>
                   </li>
                 ))}
@@ -154,22 +166,26 @@ export const LearningApproach: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Mobile Vertical Flow (Linear, High Legibility) */}
+        {/* Mobile Vertical Flow with Staggered Scroll Reveal */}
         <div className="lg:hidden space-y-4">
-          {APPROACH_STEPS.map((step) => (
-            <div
+          {APPROACH_STEPS.map((step, idx) => (
+            <motion.div
               key={step.step}
-              className="p-6 rounded-2xl glass border border-white/10 relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="p-6 rounded-2xl glass border border-sky-500/20 bg-[#061834]/80 relative"
             >
               <div className="flex items-start gap-3.5 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <span className="text-xs font-mono-code font-bold text-blue-300">{step.step}</span>
+                <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-400/25 flex items-center justify-center shrink-0">
+                  <span className="text-xs font-mono-code font-bold text-sky-300">{step.step}</span>
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-white">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-blue-300 font-light mt-0.5">
+                  <p className="text-xs text-sky-300 font-light mt-0.5">
                     {step.summary}
                   </p>
                 </div>
@@ -179,20 +195,20 @@ export const LearningApproach: React.FC = () => {
                 {step.detail}
               </p>
 
-              <div className="pt-3 border-t border-white/10">
-                <span className="text-[10px] font-mono-code uppercase text-blue-400 block mb-1.5 font-bold">
+              <div className="pt-3 border-t border-sky-500/15">
+                <span className="text-[10px] font-mono-code uppercase text-sky-400 block mb-1.5 font-bold">
                   Action Steps:
                 </span>
                 <ul className="space-y-1.5">
                   {step.keyActions.map((act, i) => (
                     <li key={i} className="flex items-center gap-2 text-[11px] text-slate-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                       <span>{act}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

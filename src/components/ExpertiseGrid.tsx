@@ -18,11 +18,34 @@ import { CORE_CAPABILITIES } from '../data/portfolioData';
 import { CapabilityItem } from '../types';
 import { StoryChapter } from './StoryChapter';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  }
+};
+
 export const ExpertiseGrid: React.FC = () => {
   const [selectedCapability, setSelectedCapability] = useState<CapabilityItem | null>(null);
 
   const getIcon = (name: string) => {
-    const props = { className: "w-5 h-5 text-blue-400 group-hover:text-white transition-colors" };
+    const props = { className: "w-5 h-5 text-sky-400 group-hover:text-white transition-colors" };
     switch (name) {
       case 'FileText': return <FileText {...props} />;
       case 'Layers': return <Layers {...props} />;
@@ -47,8 +70,14 @@ export const ExpertiseGrid: React.FC = () => {
           theme="Core Capabilities & Special Education Methods"
         />
 
-        {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        {/* Section Heading with Intersection Observer */}
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Core Professional Capabilities
@@ -58,37 +87,40 @@ export const ExpertiseGrid: React.FC = () => {
             </p>
           </div>
 
-          <span className="text-xs font-mono-code text-blue-400 px-4 py-1.5 rounded-full glass border border-white/10 self-start md:self-auto font-medium">
+          <span className="text-xs font-mono-code text-sky-400 px-4 py-1.5 rounded-full glass border border-sky-500/20 self-start md:self-auto font-medium">
             8 Core Pillars of Practice
           </span>
-        </div>
+        </motion.div>
 
-        {/* 8-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {CORE_CAPABILITIES.map((item, index) => (
+        {/* 8-Card Grid with Staggered Intersection Observer */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {CORE_CAPABILITIES.map((item) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -6 }}
+              variants={cardVariants}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
               onClick={() => setSelectedCapability(item)}
-              className="p-7 rounded-3xl glass glass-hover border border-white/10 transition-all duration-300 group cursor-pointer flex flex-col justify-between relative overflow-hidden"
+              className="p-7 rounded-3xl glass glass-hover border border-sky-500/20 bg-[#061834]/80 transition-all duration-300 group cursor-pointer flex flex-col justify-between relative overflow-hidden"
               id={`capability-card-${item.id}`}
             >
               {/* Card top */}
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:border-blue-400/40 transition-all shadow-inner">
+                  <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-400/25 flex items-center justify-center group-hover:bg-sky-500/25 group-hover:border-sky-400/50 transition-all shadow-inner">
                     {getIcon(item.iconName)}
                   </div>
-                  <span className="text-[10px] font-mono-code text-slate-300 px-2.5 py-1 rounded-full glass border border-white/10">
+                  <span className="text-[10px] font-mono-code text-slate-300 px-2.5 py-1 rounded-full glass border border-sky-500/20">
                     {item.tag}
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-white group-hover:text-blue-300 transition-colors mb-2.5 leading-snug">
+                <h3 className="text-base font-bold text-white group-hover:text-sky-300 transition-colors mb-2.5 leading-snug">
                   {item.title}
                 </h3>
 
@@ -98,16 +130,16 @@ export const ExpertiseGrid: React.FC = () => {
               </div>
 
               {/* Card footer CTA */}
-              <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-blue-400 group-hover:text-white transition-colors">
+              <div className="mt-6 pt-3 border-t border-sky-500/15 flex items-center justify-between text-xs text-sky-400 group-hover:text-white transition-colors">
                 <span className="font-semibold">Explore Methodology</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
 
               {/* Bottom Subtle Shimmer line */}
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover:via-blue-400/80 transition-all duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-sky-500/0 to-transparent group-hover:via-sky-400/80 transition-all duration-500" />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
 

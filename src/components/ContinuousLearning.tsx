@@ -15,6 +15,29 @@ import { PROFESSIONAL_TRAINING } from '../data/portfolioData';
 import { TrainingItem } from '../types';
 import { StoryChapter } from './StoryChapter';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  }
+};
+
 export const ContinuousLearning: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [expandedSymposium, setExpandedSymposium] = useState<boolean>(true);
@@ -37,9 +60,15 @@ export const ContinuousLearning: React.FC = () => {
         />
 
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6"
+        >
           <div>
-            <span className="text-xs font-mono-code text-blue-400 uppercase tracking-wider block mb-2 font-bold">
+            <span className="text-xs font-mono-code text-sky-400 uppercase tracking-wider block mb-2 font-bold">
               Continuous Professional Development
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
@@ -63,32 +92,36 @@ export const ContinuousLearning: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Training Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredTraining.map((item, index) => {
+        {/* Training Cards Grid with Staggered Scroll Reveal */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {filteredTraining.map((item) => {
             const hasWorkshops = item.workshops && item.workshops.length > 0;
 
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={`p-7 sm:p-8 rounded-3xl glass glass-hover border border-white/10 transition-all flex flex-col justify-between ${
+                variants={cardVariants}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={`p-7 sm:p-8 rounded-3xl glass glass-hover border border-sky-500/20 bg-[#061834]/80 transition-all flex flex-col justify-between ${
                   hasWorkshops ? 'md:col-span-2 lg:col-span-2' : ''
                 }`}
                 id={`training-card-${item.id}`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider glass border border-white/10 text-blue-300">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider glass border border-sky-500/25 text-sky-300">
                       {item.category}
                     </span>
                     <span className="text-xs font-mono-code text-slate-400 flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-blue-400" />
+                      <Calendar className="w-3.5 h-3.5 text-sky-400" />
                       {item.year}
                     </span>
                   </div>
@@ -105,7 +138,7 @@ export const ContinuousLearning: React.FC = () => {
                       <>
                         <span className="text-white/20">•</span>
                         <span className="text-slate-400 flex items-center gap-1 font-light">
-                          <MapPin className="w-3 h-3 text-blue-400" />
+                          <MapPin className="w-3 h-3 text-sky-400" />
                           {item.location}
                         </span>
                       </>
@@ -118,26 +151,26 @@ export const ContinuousLearning: React.FC = () => {
 
                   {/* Verification Note (e.g. for RBT) */}
                   {item.note && (
-                    <div className="p-3.5 rounded-2xl glass border border-blue-500/30 text-[11px] text-blue-200 font-light flex items-center gap-2.5 mb-3">
-                      <Info className="w-4 h-4 text-blue-400 shrink-0" />
+                    <div className="p-3.5 rounded-2xl glass border border-sky-500/30 bg-[#082042]/70 text-[11px] text-sky-200 font-light flex items-center gap-2.5 mb-3">
+                      <Info className="w-4 h-4 text-sky-400 shrink-0" />
                       <span>{item.note}</span>
                     </div>
                   )}
 
                   {/* Workshop Tracks Accordion / List for Autism Symposium */}
                   {hasWorkshops && (
-                    <div className="pt-3.5 border-t border-white/10">
+                    <div className="pt-3.5 border-t border-sky-500/15">
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-[11px] font-mono-code uppercase tracking-wider text-blue-300 font-bold flex items-center gap-1.5">
-                          <Sparkles className="w-3.5 h-3.5" />
+                        <span className="text-[11px] font-mono-code uppercase tracking-wider text-sky-300 font-bold flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5 text-sky-400" />
                           <span>Specialized Symposium Workshop Areas ({item.workshops?.length}):</span>
                         </span>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {item.workshops?.map((ws, i) => (
-                          <div key={i} className="flex items-start gap-2 text-xs text-slate-300 p-2.5 rounded-xl glass border border-white/10">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
+                          <div key={i} className="flex items-start gap-2 text-xs text-slate-300 p-2.5 rounded-xl glass border border-sky-500/20 bg-[#082042]/60">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                             <span>{ws}</span>
                           </div>
                         ))}
@@ -146,14 +179,14 @@ export const ContinuousLearning: React.FC = () => {
                   )}
                 </div>
 
-                <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center gap-1.5 text-[11px] text-slate-400 font-light">
-                  <Award className="w-3.5 h-3.5 text-blue-400" />
+                <div className="mt-5 pt-3.5 border-t border-sky-500/15 flex items-center gap-1.5 text-[11px] text-slate-400 font-light">
+                  <Award className="w-3.5 h-3.5 text-sky-400" />
                   <span>Verified Professional Development</span>
                 </div>
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

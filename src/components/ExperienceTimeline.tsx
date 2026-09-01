@@ -38,7 +38,13 @@ export const ExperienceTimeline: React.FC = () => {
         />
 
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6"
+        >
           <div>
             <span className="text-xs font-mono-code text-teal-400 uppercase tracking-wider block mb-2">
               Career Pathway & Institutional Practice
@@ -64,44 +70,50 @@ export const ExperienceTimeline: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Narrative Flow Banner (Visual Career Bridge) */}
-        <div className="mb-14 p-6 rounded-3xl glass border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-          <span className="font-mono-code uppercase tracking-wider text-blue-400 font-bold text-[11px] shrink-0">
+        {/* Narrative Flow Banner (Visual Career Bridge) with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-14 p-6 rounded-3xl glass border border-sky-500/20 bg-[#061834]/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs shadow-xl shadow-sky-950/30"
+        >
+          <span className="font-mono-code uppercase tracking-wider text-sky-400 font-bold text-[11px] shrink-0">
             Professional Evolution:
           </span>
           <div className="flex flex-wrap items-center justify-center gap-2 text-slate-300">
-            <span className="px-3 py-1.5 rounded-xl glass border border-white/10 text-slate-200 font-medium">
+            <span className="px-3 py-1.5 rounded-xl glass border border-sky-500/20 text-slate-200 font-medium">
               Physical Therapy (1998)
             </span>
-            <ArrowRight className="w-3.5 h-3.5 text-blue-400" />
-            <span className="px-3 py-1.5 rounded-xl glass border border-white/10 text-slate-200 font-medium">
+            <ArrowRight className="w-3.5 h-3.5 text-sky-400" />
+            <span className="px-3 py-1.5 rounded-xl glass border border-sky-500/20 text-slate-200 font-medium">
               Healthcare Practice (2002–2008)
             </span>
-            <ArrowRight className="w-3.5 h-3.5 text-blue-400" />
-            <span className="px-3 py-1.5 rounded-xl glass border border-white/10 text-slate-200 font-medium">
+            <ArrowRight className="w-3.5 h-3.5 text-sky-400" />
+            <span className="px-3 py-1.5 rounded-xl glass border border-sky-500/20 text-slate-200 font-medium">
               Classroom Support (2008)
             </span>
-            <ArrowRight className="w-3.5 h-3.5 text-blue-400" />
-            <span className="px-3.5 py-1.5 rounded-xl bg-blue-500/20 text-blue-200 border border-blue-400/40 font-bold">
+            <ArrowRight className="w-3.5 h-3.5 text-sky-400" />
+            <span className="px-3.5 py-1.5 rounded-xl bg-sky-500/20 text-sky-200 border border-sky-400/40 font-bold">
               Special Education Teacher (2010 – Present)
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Vertical Timeline */}
-        <div className="relative pl-6 sm:pl-10 space-y-12 before:absolute before:left-2 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-[2px] before:bg-gradient-to-b before:from-blue-400 via-purple-500/40 before:to-white/10">
+        <div className="relative pl-6 sm:pl-10 space-y-12 before:absolute before:left-2 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-[2px] before:bg-gradient-to-b before:from-sky-400 via-purple-500/40 before:to-white/10">
           {filteredRoles.map((role, index) => {
             const isPresent = role.endYear === 'Present';
 
             return (
               <motion.div
                 key={role.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                initial={{ opacity: 0, x: -28, y: 15 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="relative group"
                 id={`timeline-item-${role.id}`}
               >
@@ -109,44 +121,44 @@ export const ExperienceTimeline: React.FC = () => {
                 <div 
                   className={`absolute -left-[30px] sm:-left-[46px] top-2 w-5 h-5 rounded-full flex items-center justify-center transition-transform group-hover:scale-125 ${
                     isPresent
-                      ? 'bg-blue-400 ring-4 ring-blue-400/20 shadow-lg shadow-blue-500/50'
-                      : 'bg-[#07070a] border-2 border-white/40 group-hover:border-blue-400'
+                      ? 'bg-sky-400 ring-4 ring-sky-400/20 shadow-lg shadow-sky-500/50'
+                      : 'bg-[#051329] border-2 border-slate-600 group-hover:border-sky-400'
                   }`}
                 >
-                  <div className={`w-2 h-2 rounded-full ${isPresent ? 'bg-black animate-ping' : 'bg-blue-400'}`} />
+                  <div className={`w-2 h-2 rounded-full ${isPresent ? 'bg-[#051329] animate-ping' : 'bg-sky-400'}`} />
                 </div>
 
                 {/* Role Content Card */}
                 <div 
                   className={`p-7 sm:p-9 rounded-3xl transition-all duration-300 ${
                     isPresent
-                      ? 'glass border border-blue-500/40 blue-glow shadow-2xl'
-                      : 'glass glass-hover border border-white/10'
+                      ? 'glass border border-sky-500/40 bg-[#061834]/90 blue-glow shadow-2xl'
+                      : 'glass glass-hover border border-sky-500/15 bg-[#061834]/70'
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className={`px-3 py-1 rounded-full text-[11px] font-mono-code font-bold uppercase tracking-wider ${
                         isPresent 
-                          ? 'bg-blue-500/20 text-blue-300 border border-blue-400/40' 
-                          : 'glass border border-white/10 text-slate-300'
+                          ? 'bg-sky-500/20 text-sky-300 border border-sky-400/40' 
+                          : 'glass border border-sky-500/20 text-slate-300'
                       }`}>
                         {role.category}
                       </span>
                       {isPresent && (
-                        <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30 animate-pulse-subtle">
+                        <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30 animate-pulse-subtle">
                           CURRENT ROLE (15+ YEARS)
                         </span>
                       )}
                     </div>
 
                     <div className="flex items-center gap-1.5 text-xs font-mono-code text-slate-400">
-                      <Calendar className="w-3.5 h-3.5 text-blue-400" />
+                      <Calendar className="w-3.5 h-3.5 text-sky-400" />
                       <span>{role.period}</span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-sky-300 transition-colors">
                     {role.title}
                   </h3>
 
@@ -157,7 +169,7 @@ export const ExperienceTimeline: React.FC = () => {
                     </span>
                     <span className="text-white/20">•</span>
                     <span className="flex items-center gap-1 text-slate-400 font-light">
-                      <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                      <MapPin className="w-3.5 h-3.5 text-sky-400" />
                       {role.location}
                     </span>
                   </div>
@@ -167,14 +179,14 @@ export const ExperienceTimeline: React.FC = () => {
                   </p>
 
                   {/* Contributions list */}
-                  <div className="pt-4 border-t border-white/10">
-                    <h4 className="text-[11px] font-mono-code uppercase tracking-wider text-blue-400 mb-2.5 font-bold">
+                  <div className="pt-4 border-t border-sky-500/15">
+                    <h4 className="text-[11px] font-mono-code uppercase tracking-wider text-sky-400 mb-2.5 font-bold">
                       Key Contributions & Responsibilities:
                     </h4>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                       {role.keyContributions.map((contrib, i) => (
                         <li key={i} className="flex items-start gap-2 text-xs text-slate-300 font-light">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0 mt-1.5" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
                           <span>{contrib}</span>
                         </li>
                       ))}

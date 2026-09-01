@@ -48,8 +48,14 @@ export const MultidisciplinaryEcosystem: React.FC = () => {
         />
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono-code text-blue-400 uppercase tracking-wider block mb-2 font-bold">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="text-xs font-mono-code text-sky-400 uppercase tracking-wider block mb-2 font-bold">
             Interdisciplinary Synergy
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
@@ -58,10 +64,16 @@ export const MultidisciplinaryEcosystem: React.FC = () => {
           <p className="text-slate-300 text-sm sm:text-base mt-4 font-light leading-relaxed">
             I bridge classroom instruction with clinical therapy — actively synchronizing strategies with speech pathologists, occupational therapists, psychologists, and families.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Interactive Network Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Interactive Network Layout with Intersection Observer */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+        >
           
           {/* Left / Center: Visual Circular Interactive Network */}
           <div className="lg:col-span-7 flex items-center justify-center p-4">
@@ -207,7 +219,7 @@ export const MultidisciplinaryEcosystem: React.FC = () => {
             </AnimatePresence>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

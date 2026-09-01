@@ -3,15 +3,38 @@ import { motion } from 'motion/react';
 import { Globe, ArrowRight, Sparkles, Send, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { INTERNATIONAL_CAREER_CONTENT } from '../data/portfolioData';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    }
+  }
+};
+
+const pillarVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  }
+};
+
 export const InternationalCareer: React.FC = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="p-8 sm:p-12 rounded-3xl glass border border-slate-700/80 bg-[#030A16]/90 shadow-2xl relative overflow-hidden"
         >
           {/* Ambient Corner Aura */}
@@ -32,11 +55,19 @@ export const InternationalCareer: React.FC = () => {
             </p>
           </div>
 
-          {/* 3 Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {/* 3 Pillars with Staggered Scroll Reveal */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+          >
             {INTERNATIONAL_CAREER_CONTENT.pillars.map((pillar, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                variants={pillarVariants}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="p-6 rounded-2xl glass glass-hover border border-slate-700/60 transition-all flex flex-col justify-between"
               >
                 <div>
@@ -50,9 +81,9 @@ export const InternationalCareer: React.FC = () => {
                     {pillar.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* CTA Row */}
           <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
