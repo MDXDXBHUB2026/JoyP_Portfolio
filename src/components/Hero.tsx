@@ -50,15 +50,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             Over fifteen years turning individualized education plans into daily classroom breakthroughs — across early childhood to adolescence, multi-sensory strategies, and multidisciplinary therapy alignment in Dubai.
           </p>
 
-          {/* Credentials Mono Tagline */}
-          <div className="text-xs font-mono-code tracking-widest text-slate-400 font-semibold mb-8 flex flex-wrap items-center gap-2 uppercase">
-            <span>PTRP®</span>
-            <span className="text-slate-600">·</span>
-            <span>RBT®</span>
-            <span className="text-slate-600">·</span>
-            <span>POSTGRADUATE SPED</span>
-            <span className="text-slate-600">·</span>
-            <span>DUBAI, UAE</span>
+          {/* Credentials Mono Tagline - Enlarged & Highlighted */}
+          <div className="text-sm sm:text-base md:text-lg font-mono-code tracking-wider text-slate-200 font-bold mb-8 flex flex-wrap items-center gap-2.5 sm:gap-3 uppercase">
+            <span className="text-white">PTRP®</span>
+            <span className="text-amber-500 font-extrabold">·</span>
+            <span className="text-white">RBT®</span>
+            <span className="text-amber-500 font-extrabold">·</span>
+            <span className="text-white">POSTGRADUATE SPED</span>
+            <span className="text-amber-500 font-extrabold">·</span>
+            <span className="text-slate-300">DUBAI, UAE</span>
           </div>
 
           {/* CTA Pill Buttons matching image */}
