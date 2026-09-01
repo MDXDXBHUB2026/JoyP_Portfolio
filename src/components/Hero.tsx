@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
               Potential
               <span className="absolute -bottom-1 left-0 w-full h-[3.5px] bg-gradient-to-r from-sky-400 via-emerald-400 to-orange-400 rounded-full opacity-90 shadow-md shadow-sky-500/50" />
             </span>
-            . test
+            .
           </h1>
 
           {/* Supporting Text - First person and accomplishment driven */}
