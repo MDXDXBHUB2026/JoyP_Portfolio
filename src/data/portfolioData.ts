@@ -19,7 +19,7 @@ export const PERSONAL_INFO = {
     { name: 'Tagalog', proficiency: 'Native / Bilingual' }
   ],
   resumeUrl: '/joy-perez-resume.pdf',
-  email: 'joy.perez.specialed@gmail.com', // Professional placeholder email
+  email: 'jlp_bicol@yahoo.com',
   philosophyStatement: 'Teaching is not about asking every learner to follow the same path. It is about understanding the learner and helping create the path that allows them to progress.',
   whyITeachStatement: 'Creating environments where every learner can participate, develop and belong.'
 };
@@ -38,7 +38,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Potential',
     subtitle: 'Unlocking Innate Strengths',
     description: 'Identifying and nurturing the individual strengths and capabilities within each student.',
-    color: '#FB923C', // Radiant Orange
+    color: '#38BDF8', // Cyan Blue Glow
     angle: 0,
     distance: 145
   },
@@ -47,7 +47,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Communication',
     subtitle: 'Expressive & Receptive Growth',
     description: 'Fostering language, non-verbal cues, and assistive tools to give every child a voice.',
-    color: '#CBD5E1', // Luminous Silver
+    color: '#10B981', // Emerald Mint Green
     angle: 60,
     distance: 140
   },
@@ -56,7 +56,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Independence',
     subtitle: 'Empowering Daily Autonomy',
     description: 'Building functional life and self-help skills grounded in physical therapy and behavioral support.',
-    color: '#F97316', // Vibrant Orange
+    color: '#F97316', // Radiant Warm Orange
     angle: 120,
     distance: 145
   },
@@ -65,7 +65,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Confidence',
     subtitle: 'Emotional & Social Security',
     description: 'Creating positive, affirming classroom experiences where students feel secure to explore.',
-    color: '#94A3B8', // Metallic Platinum/Silver
+    color: '#60A5FA', // Azure Blue Glow
     angle: 180,
     distance: 140
   },
@@ -74,7 +74,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Participation',
     subtitle: 'Active Inclusive Engagement',
     description: 'Ensuring meaningful involvement in classroom activities through adaptive learning methods.',
-    color: '#EA580C', // Deep Amber Orange
+    color: '#34D399', // Seafoam Green
     angle: 240,
     distance: 145
   },
@@ -83,7 +83,7 @@ export const CONSTELLATION_NODES: ConstellationNode[] = [
     title: 'Growth',
     subtitle: 'Holistic Milestone Evolution',
     description: 'Tracking developmental milestones and evolving individualized goals as children progress.',
-    color: '#E2E8F0', // Bright Silver
+    color: '#FB923C', // Amber Orange
     angle: 300,
     distance: 140
   }

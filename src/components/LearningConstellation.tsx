@@ -48,14 +48,15 @@ export const LearningConstellation: React.FC = () => {
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 400 400">
         <defs>
           <radialGradient id="centerGlowGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FB923C" stopOpacity="0.35" />
-            <stop offset="45%" stopColor="#0B254E" stopOpacity="0.4" />
+            <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.4" />
+            <stop offset="40%" stopColor="#10B981" stopOpacity="0.25" />
+            <stop offset="70%" stopColor="#0B254E" stopOpacity="0.4" />
             <stop offset="100%" stopColor="transparent" stopOpacity="0" />
           </radialGradient>
         </defs>
 
         {/* Central glow area */}
-        <circle cx="200" cy="200" r="85" fill="url(#centerGlowGrad)" />
+        <circle cx="200" cy="200" r="90" fill="url(#centerGlowGrad)" />
 
         {/* Lines between center (200,200) and each orbital node */}
         {CONSTELLATION_NODES.map((node) => {
@@ -73,7 +74,7 @@ export const LearningConstellation: React.FC = () => {
                 y1="200"
                 x2={x}
                 y2={y}
-                stroke={isHighlighted ? node.color : '#94a3b830'}
+                stroke={isHighlighted ? node.color : '#38BDF830'}
                 strokeWidth={isHighlighted ? '2' : '1'}
                 strokeDasharray={isHighlighted ? 'none' : '3 3'}
                 className="transition-all duration-300"
@@ -113,10 +114,10 @@ export const LearningConstellation: React.FC = () => {
               y1={y1}
               x2={x2}
               y2={y2}
-              stroke={isConnectedToActive ? '#FB923C' : '#94a3b820'}
+              stroke={isConnectedToActive ? '#38BDF8' : '#38BDF820'}
               strokeWidth="1"
               strokeDasharray="2 4"
-              opacity={activeNodeId ? (isConnectedToActive ? 0.8 : 0.15) : 0.35}
+              opacity={activeNodeId ? (isConnectedToActive ? 0.85 : 0.15) : 0.35}
               className="transition-all duration-300"
             />
           );
@@ -124,14 +125,14 @@ export const LearningConstellation: React.FC = () => {
       </svg>
 
       {/* Central Node: "Every Learner" */}
-      <div className="relative z-20 flex flex-col items-center justify-center p-4 rounded-full w-28 h-28 glass border border-orange-500/40 text-center shadow-2xl bg-[#081832]/80 backdrop-blur-xl shadow-orange-500/10">
-        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-orange-500 to-amber-400 text-white flex items-center justify-center mb-1 shadow-md shadow-orange-500/30">
+      <div className="relative z-20 flex flex-col items-center justify-center p-4 rounded-full w-28 h-28 glass border border-sky-400/40 text-center shadow-2xl bg-[#081f42]/90 backdrop-blur-xl shadow-sky-500/20 blue-glow">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-400 via-emerald-400 to-orange-400 text-white flex items-center justify-center mb-1 shadow-md shadow-sky-500/30">
           <Heart className="w-4 h-4 text-white fill-white" />
         </div>
         <span className="text-[11px] uppercase tracking-wider font-mono-code font-bold text-white">
           Every Learner
         </span>
-        <span className="text-[9px] text-orange-200 font-light mt-0.5 leading-tight">
+        <span className="text-[9px] text-sky-200 font-light mt-0.5 leading-tight">
           Individual Core
         </span>
       </div>

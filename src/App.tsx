@@ -30,7 +30,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#07070a] text-slate-100 selection:bg-blue-500/30 selection:text-blue-200 font-sans">
+    <div className="relative min-h-screen bg-[#051329] text-slate-100 selection:bg-sky-500/30 selection:text-sky-200 font-sans">
       {/* Background Animated Aurora & Subtle Grid */}
       <AuroraBackground />
 

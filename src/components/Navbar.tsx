@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#030A16]/85 backdrop-blur-2xl border-b border-slate-800/80 py-3 shadow-2xl shadow-black/60'
+            ? 'bg-[#051428]/90 backdrop-blur-2xl border-b border-sky-500/20 py-3 shadow-2xl shadow-black/60'
             : 'bg-transparent py-5'
         }`}
       >
@@ -102,13 +102,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           <a
             href="#home"
             id="nav-logo-link"
-            className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 rounded-2xl p-1"
+            className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded-2xl p-1"
           >
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#0B254E] via-[#06152D] to-[#1E3A8A] border border-orange-500/40 shadow-lg shadow-orange-500/15 group-hover:scale-105 transition-all">
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#0B254E] via-[#06152D] to-[#0284C7] border border-sky-400/40 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
               <span className="font-bold text-sm tracking-wider font-mono-code text-white">
                 JP
               </span>
-              <div className="absolute inset-0 rounded-2xl bg-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity blur-xs" />
+              <div className="absolute inset-0 rounded-2xl bg-sky-400/20 opacity-0 group-hover:opacity-100 transition-opacity blur-xs" />
             </div>
             
             <div className="flex flex-col text-left">
@@ -116,15 +116,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 {PERSONAL_INFO.name}
               </span>
               <span className="text-[11px] text-slate-400 font-light flex items-center gap-1">
-                <span>Special Education</span>
+                <span className="text-sky-300 font-medium">Special Education</span>
                 <span className="text-orange-400">•</span>
-                <span>Dubai, UAE</span>
+                <span className="text-emerald-400">Dubai, UAE</span>
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1 glass p-1.5 rounded-full border border-slate-700/60 backdrop-blur-2xl" aria-label="Main Navigation">
+          <nav className="hidden xl:flex items-center gap-1 glass p-1.5 rounded-full border border-sky-500/25 backdrop-blur-2xl shadow-lg shadow-sky-950/40" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -138,14 +138,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                   }}
                   className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'text-orange-200 font-semibold'
+                      ? 'text-sky-200 font-semibold'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute inset-0 rounded-full bg-orange-500/15 border border-orange-500/30 shadow-inner -z-10"
+                      className="absolute inset-0 rounded-full bg-sky-500/20 border border-sky-400/40 shadow-inner -z-10"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -160,9 +160,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             <button
               onClick={onOpenResume}
               id="nav-view-resume-btn"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-slate-200 hover:text-white glass glass-hover rounded-2xl transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-slate-200 hover:text-white glass glass-hover rounded-2xl transition-all active:scale-95 border border-sky-500/25 hover:border-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
             >
-              <FileText className="w-3.5 h-3.5 text-orange-400" />
+              <FileText className="w-3.5 h-3.5 text-sky-400" />
               <span>View Résumé</span>
             </button>
 
@@ -173,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 e.preventDefault();
                 handleNavClick('#contact');
               }}
-              className="inline-flex items-center gap-1.5 px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 hover:from-orange-400 hover:to-amber-400 rounded-2xl transition-all shadow-xl shadow-orange-500/25 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+              className="inline-flex items-center gap-1.5 px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 hover:from-orange-400 hover:to-amber-400 rounded-2xl transition-all shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 border border-orange-400/30"
             >
               <Send className="w-3.5 h-3.5 text-white" />
               <span>Contact Me</span>

@@ -93,9 +93,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
           <div className="lg:col-span-5 space-y-6">
             
             {/* Primary Details Card */}
-            <div className="p-7 sm:p-8 rounded-3xl glass border border-slate-700/80 bg-[#030A16]/90 space-y-6">
+            <div className="p-7 sm:p-8 rounded-3xl glass border border-sky-500/25 bg-[#061834]/90 space-y-6 shadow-2xl shadow-sky-950/40">
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-orange-400" />
+                <Sparkles className="w-4 h-4 text-sky-400" />
                 <span>Professional Inquiries</span>
               </h3>
 
@@ -104,58 +104,58 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                 <span className="text-xs font-mono-code text-slate-400 uppercase tracking-wider">
                   Direct Email
                 </span>
-                <div className="flex items-center justify-between p-3.5 rounded-2xl glass border border-slate-700/60">
+                <div className="flex items-center justify-between p-3.5 rounded-2xl glass border border-sky-500/30 bg-[#082042]/70">
                   <div className="flex items-center gap-2.5 overflow-hidden">
-                    <Mail className="w-4 h-4 text-orange-400 shrink-0" />
-                    <span className="text-xs sm:text-sm text-white font-mono-code truncate">
+                    <Mail className="w-4 h-4 text-sky-400 shrink-0" />
+                    <span className="text-xs sm:text-sm text-sky-200 font-mono-code truncate">
                       {PERSONAL_INFO.email}
                     </span>
                   </div>
                   <button
                     onClick={handleCopyEmail}
-                    className="p-2 rounded-xl text-slate-300 hover:text-white glass glass-hover border border-slate-700/60 transition-colors shrink-0 ml-2 cursor-pointer"
+                    className="p-2 rounded-xl text-slate-300 hover:text-white glass glass-hover border border-sky-500/30 transition-colors shrink-0 ml-2 cursor-pointer hover:border-sky-400"
                     title="Copy Email Address"
                     aria-label="Copy Email Address"
                   >
-                    {isCopied ? <Check className="w-4 h-4 text-orange-400" /> : <Copy className="w-4 h-4" />}
+                    {isCopied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
                 {isCopied && (
-                  <span className="text-[11px] text-orange-300 font-mono-code block">
-                    ✓ Email address copied to clipboard
+                  <span className="text-[11px] text-emerald-300 font-mono-code block">
+                    ✓ Email address copied to clipboard (jlp_bicol@yahoo.com)
                   </span>
                 )}
               </div>
 
               {/* Location */}
-              <div className="space-y-1 pt-2 border-t border-slate-800">
+              <div className="space-y-1 pt-2 border-t border-sky-500/20">
                 <span className="text-xs font-mono-code text-slate-400 uppercase tracking-wider">
                   Location
                 </span>
                 <div className="flex items-center gap-2 text-sm text-white font-medium">
-                  <MapPin className="w-4 h-4 text-orange-400" />
+                  <MapPin className="w-4 h-4 text-emerald-400" />
                   <span>Dubai, United Arab Emirates</span>
                 </div>
               </div>
 
               {/* Languages */}
-              <div className="space-y-1 pt-2 border-t border-slate-800">
+              <div className="space-y-1 pt-2 border-t border-sky-500/20">
                 <span className="text-xs font-mono-code text-slate-400 uppercase tracking-wider">
                   Languages
                 </span>
                 <div className="flex items-center gap-2 text-sm text-white font-medium">
-                  <Languages className="w-4 h-4 text-slate-300" />
+                  <Languages className="w-4 h-4 text-sky-400" />
                   <span>English (Professional) & Tagalog (Native)</span>
                 </div>
               </div>
 
               {/* Résumé Quick Action */}
-              <div className="pt-4 border-t border-slate-800">
+              <div className="pt-4 border-t border-sky-500/20 space-y-2">
                 <button
                   onClick={onOpenResume}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl glass glass-hover border border-slate-700/60 text-white hover:text-white text-xs font-semibold transition-all shadow-sm cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl glass glass-hover border border-sky-500/30 text-white hover:text-white text-xs font-semibold transition-all shadow-sm cursor-pointer hover:border-sky-400"
                 >
-                  <FileText className="w-4 h-4 text-orange-400" />
+                  <FileText className="w-4 h-4 text-emerald-400" />
                   <span>View Printable Executive Résumé</span>
                 </button>
               </div>
@@ -163,7 +163,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
             </div>
 
             {/* Note on Professional Collaboration */}
-            <div className="p-6 rounded-3xl glass border border-orange-500/25 bg-[#030A16]/90 text-xs text-slate-300 font-light leading-relaxed">
+            <div className="p-6 rounded-3xl glass border border-orange-500/30 bg-[#061834]/80 text-xs text-slate-300 font-light leading-relaxed">
               <span className="font-semibold text-orange-300 block mb-1">
                 Recruitment & Partnership Note:
               </span>
@@ -174,7 +174,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
 
           {/* Right Column: Validated Professional Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl glass border border-white/10 relative">
+            <div className="p-8 sm:p-10 rounded-3xl glass border border-sky-500/25 bg-[#061834]/90 relative shadow-2xl shadow-sky-950/40">
               <h3 className="text-xl font-bold text-white mb-2">
                 Send a Professional Message
               </h3>
@@ -186,23 +186,23 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="p-7 rounded-2xl glass border border-blue-500/40 text-center space-y-3"
+                  className="p-7 rounded-2xl glass border border-sky-500/40 text-center space-y-3 bg-[#082042]/80 blue-glow"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center mx-auto border border-white/20">
-                    <Check className="w-6 h-6 text-blue-400" />
+                  <div className="w-12 h-12 rounded-2xl bg-sky-500/20 text-white flex items-center justify-center mx-auto border border-sky-400/30">
+                    <Check className="w-6 h-6 text-sky-400" />
                   </div>
                   <h4 className="text-base font-bold text-white">
                     Message Prepared & Ready
                   </h4>
                   <p className="text-xs text-slate-300 leading-relaxed font-light max-w-md mx-auto">
-                    Your inquiry has been compiled. If your email application did not open automatically, you can also send directly to <strong className="text-blue-300">{PERSONAL_INFO.email}</strong>.
+                    Your inquiry has been compiled. If your email application did not open automatically, you can also send directly to <strong className="text-sky-300 font-mono-code">{PERSONAL_INFO.email}</strong>.
                   </p>
                   <button
                     onClick={() => {
                       setIsSubmitted(false);
                       setFormData({ name: '', email: '', organization: '', message: '' });
                     }}
-                    className="mt-2 px-5 py-2.5 rounded-2xl glass glass-hover text-slate-200 hover:text-white border border-white/10 text-xs font-semibold cursor-pointer"
+                    className="mt-2 px-5 py-2.5 rounded-2xl glass glass-hover text-slate-200 hover:text-white border border-sky-500/30 text-xs font-semibold cursor-pointer"
                   >
                     Send Another Message
                   </button>
@@ -223,8 +223,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="e.g. Dr. Sarah Jenkins"
-                          className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all ${
-                            formErrors.name ? 'border-red-400 ring-1 ring-red-400' : 'border-white/10'
+                          className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all ${
+                            formErrors.name ? 'border-red-400 ring-1 ring-red-400' : 'border-sky-500/25'
                           }`}
                         />
                       </div>
@@ -243,8 +243,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="s.jenkins@academy.edu"
-                        className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all ${
-                          formErrors.email ? 'border-red-400 ring-1 ring-red-400' : 'border-white/10'
+                        className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all ${
+                          formErrors.email ? 'border-red-400 ring-1 ring-red-400' : 'border-sky-500/25'
                         }`}
                       />
                       {formErrors.email && (
@@ -264,8 +264,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                       placeholder="e.g. International Inclusive Academy / Recruitment Search"
-                      className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all ${
-                        formErrors.organization ? 'border-red-400 ring-1 ring-red-400' : 'border-white/10'
+                      className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all ${
+                        formErrors.organization ? 'border-red-400 ring-1 ring-red-400' : 'border-sky-500/25'
                       }`}
                     />
                     {formErrors.organization && (
@@ -284,8 +284,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Please share details regarding your inquiry, open position, or prospective collaboration..."
-                      className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all resize-y ${
-                        formErrors.message ? 'border-red-400 ring-1 ring-red-400' : 'border-white/10'
+                      className={`w-full px-4 py-3 rounded-2xl glass border text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all resize-y ${
+                        formErrors.message ? 'border-red-400 ring-1 ring-red-400' : 'border-sky-500/25'
                       }`}
                     />
                     {formErrors.message && (
@@ -298,7 +298,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                     <button
                       type="submit"
                       id="contact-submit-btn"
-                      className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-white hover:bg-slate-100 text-black font-bold text-xs transition-all shadow-lg active:scale-[0.99] cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-white font-bold text-xs transition-all shadow-xl shadow-orange-500/25 active:scale-[0.99] cursor-pointer border border-orange-400/30"
                     >
                       <Send className="w-4 h-4" />
                       <span>Send Professional Message</span>

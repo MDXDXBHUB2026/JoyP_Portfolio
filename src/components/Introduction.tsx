@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { CAREER_SNAPSHOTS, PERSONAL_INFO } from '../data/portfolioData';
 import { StoryChapter } from './StoryChapter';
-import { PhotoShowcase } from './PhotoShowcase';
 
 export const Introduction: React.FC = () => {
   return (
@@ -34,7 +33,7 @@ export const Introduction: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight">
               “Every learner deserves a path designed for them.”
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-orange-500 via-amber-400 to-slate-300 rounded-full mt-5" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-sky-400 via-emerald-400 to-orange-400 rounded-full mt-5 shadow-sm shadow-sky-500/30" />
           </div>
 
           <div className="lg:col-span-5">
@@ -44,7 +43,7 @@ export const Introduction: React.FC = () => {
           </div>
         </div>
 
-        {/* Narrative Split with Photo Showcase Integration */}
+        {/* Narrative Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
           
           {/* Main Narrative Card */}
@@ -53,13 +52,13 @@ export const Introduction: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-8 p-8 sm:p-10 rounded-3xl glass border border-slate-700/80 relative overflow-hidden flex flex-col justify-between"
+            className="lg:col-span-8 p-8 sm:p-10 rounded-3xl glass border border-sky-500/25 bg-[#061834]/85 relative overflow-hidden flex flex-col justify-between shadow-2xl shadow-sky-950/40"
           >
-            <div className="absolute -top-24 -right-24 w-60 h-60 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -right-24 w-60 h-60 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
             
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2.5">
-                <Sparkles className="w-5 h-5 text-orange-400" />
+                <Sparkles className="w-5 h-5 text-sky-400" />
                 <span>My Distinctive Interdisciplinary Background</span>
               </h3>
 
@@ -73,8 +72,8 @@ export const Introduction: React.FC = () => {
             </div>
 
             {/* Distinctive Combination Badges */}
-            <div className="pt-6 border-t border-slate-800">
-              <span className="text-xs font-mono-code uppercase tracking-wider text-orange-400 block mb-3 font-semibold">
+            <div className="pt-6 border-t border-sky-500/20">
+              <span className="text-xs font-mono-code uppercase tracking-wider text-sky-300 block mb-3 font-semibold">
                 Core Competencies & Daily Practice:
               </span>
               <div className="flex flex-wrap gap-2">
@@ -89,9 +88,9 @@ export const Introduction: React.FC = () => {
                 ].map((item, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass border border-slate-700/60 text-slate-200 text-xs font-medium"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass border border-sky-500/20 text-slate-200 text-xs font-medium hover:border-emerald-400/50 transition-colors"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{item}</span>
                   </span>
                 ))}
@@ -105,7 +104,7 @@ export const Introduction: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-4 p-8 rounded-3xl glass border border-orange-500/30 flex flex-col justify-between bg-[#030A16]/90 shadow-2xl shadow-orange-500/5"
+            className="lg:col-span-4 p-8 rounded-3xl glass border border-orange-500/35 flex flex-col justify-between bg-[#061834]/90 shadow-2xl shadow-orange-500/10"
           >
             <div>
               <div className="flex items-center gap-2 text-xs font-mono-code text-orange-400 uppercase tracking-wider mb-2 font-bold">
