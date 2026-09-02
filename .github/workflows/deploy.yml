@@ -27,9 +27,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+
       - name: Install dependencies
         run: npm install
+
+      - name: Security check
+        run: npm run security-check
+
+      - name: Type check
+        run: npm run lint
 
       - name: Build website
         run: npm run build
