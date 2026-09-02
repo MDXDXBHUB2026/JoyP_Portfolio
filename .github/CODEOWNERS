@@ -1,0 +1,6 @@
+# Require repository owner review for sensitive portfolio and deployment files
+/src/components/ImmersivePhoto.tsx @MDXDXBHUB2026
+/public/assets/aistudio/joy-perez-profile-premium.png @MDXDXBHUB2026
+/scripts/security-check.mjs @MDXDXBHUB2026
+/.github/workflows/ @MDXDXBHUB2026
+/package.json @MDXDXBHUB2026
